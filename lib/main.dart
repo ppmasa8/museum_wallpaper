@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'view/screens/homeview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,12 +21,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
- class HomeView extends StatelessWidget {
-   const HomeView({Key? key}) : super(key: key);
- 
-   @override
-   Widget build(BuildContext context) {
-     return Container();
-   }
- }
  
