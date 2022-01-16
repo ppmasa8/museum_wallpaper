@@ -1,4 +1,4 @@
-# metropolitan_museum
+# metropolitan_museum_app
 
 A new Flutter project.
 
