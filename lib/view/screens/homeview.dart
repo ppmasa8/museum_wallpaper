@@ -9,14 +9,20 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Wallpaper", style: h1),
+        title: const Text(
+            "Wallpaper",
+            style: h1
+        ),
         centerTitle: true,
         backgroundColor: whitecolor,
         elevation: 0,
         actions: [
           IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.search)
+              icon: const Icon(
+                Icons.search,
+                color: greycolor,
+              )
           )
         ],
       ),
