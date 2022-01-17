@@ -7,24 +7,45 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-            "Wallpaper",
-            style: h1
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+              "Wallpaper",
+              style: h1
+          ),
+          centerTitle: true,
+          backgroundColor: whitecolor,
+          elevation: 0,
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.search,
+                  color: greycolor,
+                )
+            )
+          ],
+          bottom: const TabBar(
+              indicatorColor: Colors.transparent,
+              labelColor: pinkcolor,
+              unselectedLabelColor: greycolor,
+              tabs: [
+            Text(
+              "TODAY",
+              style: links,
+            ),
+            Text(
+              "POPULAR",
+              style: links,
+            ),
+            Text(
+              "OLDES",
+              style: links,
+            ),
+          ]),
         ),
-        centerTitle: true,
-        backgroundColor: whitecolor,
-        elevation: 0,
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.search,
-                color: greycolor,
-              )
-          )
-        ],
       ),
     );
   }
