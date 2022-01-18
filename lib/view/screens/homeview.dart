@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
 import 'package:metropolitan_museum/view/utils/helpers/style_helper.dart';
+import 'package:metropolitan_museum/view/utils/shared/shared_grid_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -45,6 +46,13 @@ class HomeView extends StatelessWidget {
               style: links,
             ),
           ]),
+        ),
+        body: const TabBarView(
+          children: [
+            SharedGridWidget(),
+            SharedGridWidget(),
+            SharedGridWidget()
+          ],
         ),
       ),
     );
