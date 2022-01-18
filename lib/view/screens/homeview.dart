@@ -48,6 +48,7 @@ class HomeView extends StatelessWidget {
           ]),
         ),
         body: const TabBarView(
+          physics: BouncingScrollPhysics(),
           children: [
             SharedGridWidget(),
             SharedGridWidget(),
