@@ -1,57 +1,51 @@
-import 'dart:convert';
-
-MetropolitanMuseum metropolitanMuseumFromJson(String str) => MetropolitanMuseum.fromJson(json.decode(str));
-
-String metropolitanMuseumToJson(MetropolitanMuseum data) => json.encode(data.toJson());
-
 class MetropolitanMuseum {
   MetropolitanMuseum({
     required this.objectId,
-    required this.accessionYear,
-    required this.primaryImage,
-    required this.primaryImageSmall,
-    required this.additionalImages,
-    required this.department,
-    required this.objectName,
-    required this.title,
-    required this.culture,
-    required this.period,
-    required this.artistRole,
-    required this.artistDisplayName,
-    required this.artistDisplayBio,
-    required this.artistAlphaSort,
-    required this.artistNationality,
-    required this.artistBeginDate,
-    required this.artistEndDate,
-    required this.artistGender,
-    required this.artistWikidataUrl,
-    required this.objectDate,
-    required this.objectBeginDate,
-    required this.objectEndDate,
+    this.accessionYear,
+    this.primaryImage,
+    this.primaryImageSmall,
+    this.additionalImages,
+    this.department,
+    this.objectName,
+    this.title,
+    this.culture,
+    this.period,
+    this.artistRole,
+    this.artistDisplayName,
+    this.artistDisplayBio,
+    this.artistAlphaSort,
+    this.artistNationality,
+    this.artistBeginDate,
+    this.artistEndDate,
+    this.artistGender,
+    this.artistWikidataUrl,
+    this.objectDate,
+    this.objectBeginDate,
+    this.objectEndDate,
   });
 
   int objectId;
-  String accessionYear;
-  String primaryImage;
-  String primaryImageSmall;
-  List<String> additionalImages;
-  String department;
-  String objectName;
-  String title;
-  String culture;
-  String period;
-  String artistRole;
-  String artistDisplayName;
-  String artistDisplayBio;
-  String artistAlphaSort;
-  String artistNationality;
-  String artistBeginDate;
-  String artistEndDate;
-  String artistGender;
-  String artistWikidataUrl;
-  String objectDate;
-  int objectBeginDate;
-  int objectEndDate;
+  String? accessionYear;
+  String? primaryImage;
+  String? primaryImageSmall;
+  List<String>? additionalImages;
+  String? department;
+  String? objectName;
+  String? title;
+  String? culture;
+  String? period;
+  String? artistRole;
+  String? artistDisplayName;
+  String? artistDisplayBio;
+  String? artistAlphaSort;
+  String? artistNationality;
+  String? artistBeginDate;
+  String? artistEndDate;
+  String? artistGender;
+  String? artistWikidataUrl;
+  String? objectDate;
+  int? objectBeginDate;
+  int? objectEndDate;
 
   factory MetropolitanMuseum.fromJson(Map<String, dynamic> json) => MetropolitanMuseum(
     objectId: json["objectID"],
@@ -83,7 +77,7 @@ class MetropolitanMuseum {
     "accessionYear": accessionYear,
     "primaryImage": primaryImage,
     "primaryImageSmall": primaryImageSmall,
-    "additionalImages": List<dynamic>.from(additionalImages.map((x) => x)),
+    "additionalImages": List<dynamic>.from(additionalImages!.map((x) => x)),
     "department": department,
     "objectName": objectName,
     "title": title,

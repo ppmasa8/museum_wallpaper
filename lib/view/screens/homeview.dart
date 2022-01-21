@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:metropolitan_museum/controllers/home_controller.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
 import 'package:metropolitan_museum/view/utils/helpers/style_helper.dart';
 import 'package:metropolitan_museum/view/utils/shared/shared_grid_widget.dart';
@@ -47,12 +49,17 @@ class HomeView extends StatelessWidget {
             ),
           ]),
         ),
-        body: const TabBarView(
-          physics: BouncingScrollPhysics(),
+        body: TabBarView(
+          physics: const BouncingScrollPhysics(),
           children: [
-            SharedGridWidget(),
-            SharedGridWidget(),
-            SharedGridWidget()
+            GetBuilder<HomeController>(
+              init: HomeController(),
+              builder: (context) {
+                return const SharedGridWidget();
+              }
+            ),
+            const SharedGridWidget(),
+            const SharedGridWidget()
           ],
         ),
       ),
