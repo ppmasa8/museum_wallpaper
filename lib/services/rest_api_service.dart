@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:async'; //非同期処理用
 import 'package:http/http.dart' as http;
 import 'package:metropolitan_museum/view/utils/constants/const.dart';
 import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
