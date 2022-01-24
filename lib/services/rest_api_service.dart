@@ -6,20 +6,19 @@ import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
 class RestApiService {
   Future<List<dynamic>> getJsonDataFromApi(String url) async {
     Uri uri = Uri.parse(url);
-    print('========${uri}');
     var response = await http.get(uri);
-    // TODO parsedData change to List<dynamic>.
     var parsedData = jsonDecode(response.body);
-    print('========${parsedData}=======');
-    return parsedData;
+    var dataList = [];
+    parsedData.forEach((key, value){
+      if (value.runtimeType != List<dynamic>) {
+        dataList.add('$key: $value');
+      }
+    });
+    return dataList;
   }
 
-  Future<List<MetropolitanMuseum>> convertJsonToObject(int objectnumber) async {
+  Future<List> convertJsonToObject(int objectnumber) async {
     List<dynamic> list = await getJsonDataFromApi(api + "${objectnumber}");
-    List<MetropolitanMuseum> wallpapers = [];
-    for (var wallpaper in list) {
-      wallpapers.add(MetropolitanMuseum.fromJson(wallpaper));
-    }
-    return wallpapers;
+    return list;
   }
 }

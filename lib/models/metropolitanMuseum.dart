@@ -4,7 +4,6 @@ class MetropolitanMuseum {
     this.accessionYear,
     this.primaryImage,
     this.primaryImageSmall,
-    this.additionalImages,
     this.department,
     this.objectName,
     this.title,
@@ -28,7 +27,6 @@ class MetropolitanMuseum {
   String? accessionYear;
   String? primaryImage;
   String? primaryImageSmall;
-  List<String>? additionalImages;
   String? department;
   String? objectName;
   String? title;
@@ -52,7 +50,6 @@ class MetropolitanMuseum {
     accessionYear: json["accessionYear"],
     primaryImage: json["primaryImage"],
     primaryImageSmall: json["primaryImageSmall"],
-    additionalImages: List<String>.from(json["additionalImages"].map((x) => x)),
     department: json["department"],
     objectName: json["objectName"],
     title: json["title"],
@@ -77,7 +74,6 @@ class MetropolitanMuseum {
     "accessionYear": accessionYear,
     "primaryImage": primaryImage,
     "primaryImageSmall": primaryImageSmall,
-    "additionalImages": List<dynamic>.from(additionalImages!.map((x) => x)),
     "department": department,
     "objectName": objectName,
     "title": title,
