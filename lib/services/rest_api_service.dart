@@ -10,15 +10,22 @@ class RestApiService {
     var parsedData = jsonDecode(response.body);
     var dataList = [];
     parsedData.forEach((key, value){
-      if (value.runtimeType != List<dynamic>) {
-        dataList.add('$key: $value');
-      }
+      // TODO 型を変換しないようにしてLIst<dynamic>にする.
+      dataList.add('key: value');
     });
     return dataList;
   }
 
-  Future<List> convertJsonToObject(int objectnumber) async {
-    List<dynamic> list = await getJsonDataFromApi(api + "${objectnumber}");
-    return list;
+  Future<List<MetropolitanMuseum>> convertJsonToObject(int objectid) async {
+    List<dynamic> list = await getJsonDataFromApi(api + "${objectid}");
+    List<MetropolitanMuseum> wallpapers = [];
+    for (var wallpaper in list) {
+      // wallpapers.add(MetropolitanMuseum.fromJson(wallpaper));
+      print(wallpaper);
+      print(wallpaper.runtimeType);
+      print(MetropolitanMuseum.fromJson(wallpaper));
+      print(MetropolitanMuseum.fromJson(wallpaper).runtimeType);
+    }
+    return wallpapers;
   }
 }
