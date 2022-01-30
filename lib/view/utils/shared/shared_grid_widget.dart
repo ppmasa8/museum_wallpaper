@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
 
 class SharedGridWidget extends StatelessWidget {
-  const SharedGridWidget({Key? key}) : super(key: key);
+  final List<MetropolitanMuseum> wallpapers;
+  const SharedGridWidget({Key? key, required this.wallpapers}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,16 @@ class SharedGridWidget extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: pinkcolor,
+          ),
+          child: Image.network(
+            wallpapers[index].primaryImage.toString(),
+            errorBuilder: (c, o, s) {
+              print('Load failed : ${c.toString()}');
+              return const Icon(
+                Icons.error,
+                color: Colors.red,
+              );
+            },
           ),
         ),
       ),

@@ -54,12 +54,12 @@ class HomeView extends StatelessWidget {
           children: [
             GetBuilder<HomeController>(
               init: HomeController(),
-              builder: (context) {
-                return const SharedGridWidget();
+              builder: (controller) {
+                return SharedGridWidget(wallpapers: controller.todaysList,);
               }
             ),
-            const SharedGridWidget(),
-            const SharedGridWidget()
+            const SharedGridWidget(wallpapers: [],),
+            const SharedGridWidget(wallpapers: [],)
           ],
         ),
       ),
