@@ -1,6 +1,6 @@
 class MetropolitanMuseum {
   MetropolitanMuseum({
-    required this.objectId,
+    this.objectId,
     this.accessionYear,
     this.primaryImage,
     this.primaryImageSmall,
@@ -23,7 +23,7 @@ class MetropolitanMuseum {
     this.objectEndDate,
   });
 
-  int objectId;
+  int? objectId;
   String? accessionYear;
   String? primaryImage;
   String? primaryImageSmall;

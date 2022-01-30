@@ -10,8 +10,7 @@ class RestApiService {
     var parsedData = jsonDecode(response.body);
     var dataList = [];
     parsedData.forEach((key, value){
-      // TODO 型を変換しないようにしてLIst<dynamic>にする.
-      dataList.add('key: value');
+      dataList.add({key: value});
     });
     return dataList;
   }
@@ -20,11 +19,8 @@ class RestApiService {
     List<dynamic> list = await getJsonDataFromApi(api + "${objectid}");
     List<MetropolitanMuseum> wallpapers = [];
     for (var wallpaper in list) {
-      // wallpapers.add(MetropolitanMuseum.fromJson(wallpaper));
-      print(wallpaper);
-      print(wallpaper.runtimeType);
-      print(MetropolitanMuseum.fromJson(wallpaper));
-      print(MetropolitanMuseum.fromJson(wallpaper).runtimeType);
+      Map<String, dynamic> data = Map<String, dynamic>.from(wallpaper);
+      wallpapers.add(MetropolitanMuseum.fromJson(data));
     }
     return wallpapers;
   }
