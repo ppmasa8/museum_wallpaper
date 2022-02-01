@@ -17,11 +17,11 @@ class RestApiService {
 
   Future<List<MetropolitanMuseum>> convertJsonToObject(int objectid) async {
     List<dynamic> list = await getJsonDataFromApi(api + "${objectid}");
-    List<MetropolitanMuseum> wallpapers = [];
+    List<MetropolitanMuseum> wallpapersObj = [];
     for (var wallpaper in list) {
       Map<String, dynamic> data = Map<String, dynamic>.from(wallpaper);
-      wallpapers.add(MetropolitanMuseum.fromJson(data));
+      wallpapersObj.add(MetropolitanMuseum.fromJson(data));
     }
-    return wallpapers;
+    return wallpapersObj;
   }
 }

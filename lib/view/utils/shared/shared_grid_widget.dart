@@ -12,27 +12,31 @@ class SharedGridWidget extends StatelessWidget {
       padding: const EdgeInsets.only(top: 30, right: 30, bottom: 0, left: 30),
       child: GridView.builder(
         physics: const BouncingScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 30,
-            crossAxisSpacing: 30,
-            childAspectRatio: 2 / 2.7,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 30,
+          crossAxisSpacing: 30,
+          childAspectRatio: 2 / 2.7,
         ),
         itemCount: 10,
-        itemBuilder: (context, index) => Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: pinkcolor,
-          ),
-          child: Image.network(
-            wallpapers[index].primaryImage.toString(),
-            errorBuilder: (c, o, s) {
-              print('Load failed : ${c.toString()}');
-              return const Icon(
-                Icons.error,
-                color: Colors.red,
-              );
-            },
+        itemBuilder: (context, index) => ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: pinkcolor,
+            ),
+            child: Image.network(
+              wallpapers[5].primaryImage.toString(),
+              fit: BoxFit.cover,
+              errorBuilder: (c, o, s) {
+                print('Load failed : ${c.toString()}');
+                return const Icon(
+                  Icons.error,
+                  color: Colors.yellowAccent,
+                );
+              },
+            ),
           ),
         ),
       ),
