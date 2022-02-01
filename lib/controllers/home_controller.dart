@@ -9,7 +9,15 @@ class HomeController extends BaseController {
 
   void getListOfToday() async {
     setState(true);
-    todaysList = await _restApiService.convertJsonToObject(199);
+    todaysList += await _restApiService.convertJsonToObject(199);
+    todaysList += await _restApiService.convertJsonToObject(200);
+    todaysList += await _restApiService.convertJsonToObject(201);
+    todaysList += await _restApiService.convertJsonToObject(202);
+    todaysList += await _restApiService.convertJsonToObject(203);
+    todaysList += await _restApiService.convertJsonToObject(204);
+    todaysList += await _restApiService.convertJsonToObject(205);
+    todaysList += await _restApiService.convertJsonToObject(206);
+    todaysList += await _restApiService.convertJsonToObject(207);
     setState(false);
   }
 

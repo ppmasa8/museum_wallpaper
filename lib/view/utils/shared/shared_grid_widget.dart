@@ -5,6 +5,7 @@ import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
 class SharedGridWidget extends StatelessWidget {
   final List<MetropolitanMuseum> wallpapers;
   const SharedGridWidget({Key? key, required this.wallpapers}) : super(key: key);
+  static const jsonObjectlength = 57;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class SharedGridWidget extends StatelessWidget {
           crossAxisSpacing: 30,
           childAspectRatio: 2 / 2.7,
         ),
-        itemCount: 10,
+        itemCount: 8,
         itemBuilder: (context, index) => ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: Container(
@@ -27,7 +28,8 @@ class SharedGridWidget extends StatelessWidget {
               color: pinkcolor,
             ),
             child: Image.network(
-              wallpapers[5].primaryImage.toString(),
+              // TODO response faster
+              wallpapers[5 + index * jsonObjectlength].primaryImage.toString(),
               fit: BoxFit.cover,
               errorBuilder: (c, o, s) {
                 print('Load failed : ${c.toString()}');
