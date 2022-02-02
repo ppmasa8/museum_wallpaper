@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:metropolitan_museum/view/utils/constants/const.dart';
 import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
 
 class RestApiService {
@@ -15,8 +14,8 @@ class RestApiService {
     return dataList;
   }
 
-  Future<List<MetropolitanMuseum>> convertJsonToObject(int objectid) async {
-    List<dynamic> list = await getJsonDataFromApi(api + "${objectid}");
+  Future<List<MetropolitanMuseum>> convertJsonToObject(String url) async {
+    List<dynamic> list = await getJsonDataFromApi(url);
     List<MetropolitanMuseum> wallpapersObj = [];
     for (var wallpaper in list) {
       Map<String, dynamic> data = Map<String, dynamic>.from(wallpaper);
