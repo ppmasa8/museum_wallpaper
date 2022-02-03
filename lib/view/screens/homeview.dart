@@ -56,15 +56,27 @@ class HomeView extends StatelessWidget {
             return TabBarView(
               physics: const BouncingScrollPhysics(),
               children: [
-                SharedGridWidget(
-                  wallpapers: controller.todaysList,
-                ),
-                SharedGridWidget(
-                  wallpapers: controller.popularList,
-                ),
-                SharedGridWidget(
-                  wallpapers: controller.oldestList,
-                )
+                controller.state
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                    )
+                    : SharedGridWidget(
+                        wallpapers: controller.todaysList,
+                    ),
+                controller.state
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                    )
+                    : SharedGridWidget(
+                        wallpapers: controller.popularList,
+                    ),
+                controller.state
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                    )
+                    : SharedGridWidget(
+                        wallpapers: controller.oldestList,
+                    )
               ],
             );
           },
