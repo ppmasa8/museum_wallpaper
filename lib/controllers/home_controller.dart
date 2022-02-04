@@ -10,8 +10,7 @@ class HomeController extends BaseController {
   List<MetropolitanMuseum> oldestList = [];
 
   // search today
-  void getListOfToday() async {
-    setState(true);
+  Future<void> getListOfToday() async {
     todaysList += await _restApiService.convertJsonToObject(api + "${423169}");
     todaysList += await _restApiService.convertJsonToObject(api + "${200734}");
     todaysList += await _restApiService.convertJsonToObject(api + "${57853}");
@@ -21,12 +20,10 @@ class HomeController extends BaseController {
     todaysList += await _restApiService.convertJsonToObject(api + "${201784}");
     todaysList += await _restApiService.convertJsonToObject(api + "${207128}");
     todaysList += await _restApiService.convertJsonToObject(api + "${207125}");
-    setState(false);
   }
 
   // search popular
-  void getListOfPopular() async {
-    setState(true);
+  Future<void> getListOfPopular() async {
     popularList += await _restApiService.convertJsonToObject(api + "${500667}");
     popularList += await _restApiService.convertJsonToObject(api + "${3411}");
     popularList += await _restApiService.convertJsonToObject(api + "${426342}");
@@ -36,12 +33,10 @@ class HomeController extends BaseController {
     popularList += await _restApiService.convertJsonToObject(api + "${426345}");
     popularList += await _restApiService.convertJsonToObject(api + "${426350}");
     popularList += await _restApiService.convertJsonToObject(api + "${426348}");
-    setState(false);
   }
 
   // search old
-  void getListOfOldest() async {
-    setState(true);
+  Future<void> getListOfOldest() async {
     oldestList += await _restApiService.convertJsonToObject(api + "${328905}");
     oldestList += await _restApiService.convertJsonToObject(api + "${322890}");
     oldestList += await _restApiService.convertJsonToObject(api + "${44292}");
@@ -51,14 +46,19 @@ class HomeController extends BaseController {
     oldestList += await _restApiService.convertJsonToObject(api + "${322272}");
     oldestList += await _restApiService.convertJsonToObject(api + "${327457}");
     oldestList += await _restApiService.convertJsonToObject(api + "${323535}");
+  }
+
+  void getllData() async {
+    setState(true);
+    await getListOfToday();
+    await getListOfPopular();
+    await getListOfOldest();
     setState(false);
   }
 
   @override
   void onInit() {
-    getListOfToday();
-    getListOfPopular();
-    getListOfOldest();
+    getllData();
     super.onInit();
   }
 }

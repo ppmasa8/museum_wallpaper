@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
+import 'package:metropolitan_museum/view/screens/wallpaper_view.dart';
+import 'package:metropolitan_museum/view/utils/constants/const.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
 
 class SharedGridWidget extends StatelessWidget {
   final List<MetropolitanMuseum> wallpapers;
   const SharedGridWidget({Key? key, required this.wallpapers}) : super(key: key);
-  static const jsonObjectlength = 57;
 
   @override
   Widget build(BuildContext context) {
@@ -20,24 +22,31 @@ class SharedGridWidget extends StatelessWidget {
           childAspectRatio: 2 / 2.7,
         ),
         itemCount: 8,
-        itemBuilder: (context, index) => ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: pinkcolor,
-            ),
-            child: Image.network(
-              // TODO response faster
-              wallpapers[5 + index * jsonObjectlength].primaryImage.toString(),
-              fit: BoxFit.cover,
-              errorBuilder: (c, o, s) {
-                print('Load failed : ${c.toString()}');
-                return const Icon(
-                  Icons.error,
-                  color: Colors.yellowAccent,
-                );
-              },
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () {
+            Get.to(() => WallpaperView(
+                wallpaper: wallpapers[5 + index * jsonObjectlength]
+            ));
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: pinkcolor,
+              ),
+              child: Image.network(
+                // TODO response faster
+                wallpapers[5 + index * jsonObjectlength].primaryImage.toString(),
+                fit: BoxFit.cover,
+                errorBuilder: (c, o, s) {
+                  print('Load failed : ${c.toString()}');
+                  return const Icon(
+                    Icons.error,
+                    color: Colors.yellowAccent,
+                  );
+                },
+              ),
             ),
           ),
         ),
