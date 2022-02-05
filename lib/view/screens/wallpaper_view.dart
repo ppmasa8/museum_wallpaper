@@ -12,24 +12,39 @@ class WallpaperView extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.network(
-            wallpaper.primaryImage.toString(),
-            height: Get.height,
-            width: double.infinity,
-            fit: BoxFit.cover,
+          Hero(
+            tag: wallpaper.primaryImage.toString(),
+            child: Image.network(
+              wallpaper.primaryImage.toString(),
+              height: Get.height,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                      color: whitecolor,
-                    )
+                WallpaperViewButton(
+                  color: whitecolor,
+                  onPressed: (){
+                    Get.back();
+                  },
+                  iconData: Icons.arrow_back_ios,
+                ),
+                Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: pinkcolor,
+                      child: WallpaperViewButton(
+                          onPressed: (){},
+                          color: whitecolor,
+                          iconData: Icons.file_download_outlined
+                      ),
+                    ),
+                  ],
                 )
               ],
             ),
@@ -39,3 +54,30 @@ class WallpaperView extends StatelessWidget {
     );
   }
 }
+
+class WallpaperViewButton extends StatelessWidget {
+  final Function onPressed;
+  final Color color;
+  final IconData iconData;
+
+  const WallpaperViewButton(
+      {Key? key,
+        required this.onPressed,
+        required this.color,
+        required this.iconData,
+      }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        onPressed();
+      },
+      icon: Icon(
+        iconData,
+        color: color,
+      ),
+    );
+  }
+}
+

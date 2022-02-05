@@ -35,17 +35,20 @@ class SharedGridWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 color: pinkcolor,
               ),
-              child: Image.network(
-                // TODO response faster
-                wallpapers[5 + index * jsonObjectlength].primaryImage.toString(),
-                fit: BoxFit.cover,
-                errorBuilder: (c, o, s) {
-                  print('Load failed : ${c.toString()}');
-                  return const Icon(
-                    Icons.error,
-                    color: Colors.yellowAccent,
-                  );
-                },
+              child: Hero(
+                tag: wallpapers[5 + index * jsonObjectlength].primaryImage.toString(),
+                child: Image.network(
+                  // TODO response faster
+                  wallpapers[5 + index * jsonObjectlength].primaryImage.toString(),
+                  fit: BoxFit.cover,
+                  errorBuilder: (c, o, s) {
+                    print('Load failed : ${c.toString()}');
+                    return const Icon(
+                      Icons.error,
+                      color: Colors.yellowAccent,
+                    );
+                  },
+                ),
               ),
             ),
           ),
