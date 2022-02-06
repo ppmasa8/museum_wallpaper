@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
+import 'package:metropolitan_museum/view/utils/helpers/style_helper.dart';
 
 class WallpaperView extends StatelessWidget {
   final MetropolitanMuseum wallpaper;
@@ -35,6 +36,7 @@ class WallpaperView extends StatelessWidget {
                   iconData: Icons.arrow_back_ios,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CircleAvatar(
                       backgroundColor: pinkcolor,
@@ -44,6 +46,33 @@ class WallpaperView extends StatelessWidget {
                           iconData: Icons.file_download_outlined
                       ),
                     ),
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 80,
+                        vertical: 15,
+                      ),
+                      child: const Text(
+                          "SET AS",
+                          style: buttons,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: pinkcolor,
+                      ),
+                    ),
+                    CircleAvatar(
+                      backgroundColor: whitecolor,
+                      child: WallpaperViewButton(
+                          onPressed: (){
+                            showBottomSheet(
+                                context: context,
+                                builder: (context) => Container()
+                            );
+                          },
+                          color: pinkcolor,
+                          iconData: Icons.favorite_border
+                      ),
+                    )
                   ],
                 )
               ],
