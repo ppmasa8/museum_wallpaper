@@ -46,28 +46,12 @@ class WallpaperView extends StatelessWidget {
                           iconData: Icons.file_download_outlined
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 80,
-                        vertical: 15,
-                      ),
-                      child: const Text(
-                          "SET AS",
-                          style: buttons,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: pinkcolor,
-                      ),
-                    ),
+                    const SetButton(),
                     CircleAvatar(
                       backgroundColor: whitecolor,
                       child: WallpaperViewButton(
                           onPressed: (){
-                            showBottomSheet(
-                                context: context,
-                                builder: (context) => Container()
-                            );
+
                           },
                           color: pinkcolor,
                           iconData: Icons.favorite_border
@@ -79,6 +63,38 @@ class WallpaperView extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class SetButton extends StatelessWidget {
+  const SetButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: (){
+        showBottomSheet(
+            context: context,
+            builder: (context) => Container()
+        );
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 80,
+          vertical: 15,
+        ),
+        child: const Text(
+            "SET AS",
+            style: buttons,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          color: pinkcolor,
+        ),
       ),
     );
   }
