@@ -78,9 +78,71 @@ class SetButton extends StatelessWidget {
     return GestureDetector(
       onTap: (){
         showBottomSheet(
+            backgroundColor: Colors.transparent,
             context: context,
-            builder: (context) => Container()
-        );
+            builder: (context) => Container(
+              decoration: const BoxDecoration(
+                  color: whitecolor,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10))),
+              height: Get.height * 0.4,
+              child: ListView(
+                children: [
+                  ListTile(
+                    onTap: () {
+                      Get.back();
+                    },
+                    leading: const Text(
+                      "Set Wallpaper as :",
+                      style: h1,
+                    ),
+                    trailing: const Icon(
+                      Icons.cancel_outlined,
+                      color: blackcolor,
+                    ),
+                  ),
+                  ListTile(
+                    onTap: () {
+                      Get.back();
+                    },
+                    leading: const Icon(
+                      Icons.home_filled,
+                      color: blackcolor,
+                    ),
+                    title: const Text(
+                      "Home Screen",
+                      style: h1,
+                    ),
+                  ),
+                  ListTile(
+                    onTap: () {
+                      Get.back();
+                    },
+                    leading: const Icon(
+                      Icons.lock_open,
+                      color: blackcolor,
+                    ),
+                    title: const Text(
+                      "Lock Screen",
+                      style: h1,
+                    ),
+                  ),
+                  ListTile(
+                    onTap: () {
+                      Get.back();
+                    },
+                    leading: const Icon(
+                      Icons.screen_lock_landscape,
+                      color: blackcolor,
+                    ),
+                    title: const Text(
+                      "Home & Lock Screen",
+                      style: h1,
+                    ),
+                  )
+                ],),
+            ));
       },
       child: Container(
         padding: EdgeInsets.symmetric(
