@@ -6,7 +6,7 @@ class WallpaperController extends DownloadController {
   Future<void> downloadTheWallpaper(String url) async {
     var file = await DefaultCacheManager().getSingleFile(url);
     await insertImagePath(url: url, path: file.path);
-    Get.showSnackbar(GetSnackBar(
+    Get.showSnackbar(const GetSnackBar(
       title: 'Done',
       message: 'Image Download',
       duration: Duration(seconds: 2),
