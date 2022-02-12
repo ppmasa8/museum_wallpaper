@@ -1,12 +1,13 @@
-## 問題点
+## problems
 
--　画像を表示するまでに時間かかりすぎ
+-　It takes too long to display the image.
 
-## 調査
+## survey
 
-- apiレスポンスが帰ってくるまでの時間の計測
-- URLを得てから画像を表示するまでにかかる時間の計測 
+- Measure the time until the api response comes back.
+- Measure the time it takes to display the image after getting the URL. 
 
-## 解決策
+## Solutions
 
-- 最初の100件くらいは直にapi叩いて得られたurlの画像を直接表示するようにして、それより多くの画像をユーザーが求めた場合や検索した際にはapiから持ってくる処理を挟む
+- The first 100 or so images will be displayed directly from the url obtained from the api, and if the number of images exceeds that number, or if the user searches for images, the images will be retrieved from the api.
+- Put everything into the database in advance.
