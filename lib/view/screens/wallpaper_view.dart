@@ -54,7 +54,10 @@ class WallpaperView extends StatelessWidget {
                               iconData: Icons.file_download_outlined
                           ),
                         ),
-                        const SetButton(),
+                        SetButton(
+                          wallpaper: wallpaper,
+                          wallpaperController: controller,
+                        ),
                         CircleAvatar(
                           backgroundColor: whitecolor,
                           child: WallpaperViewButton(

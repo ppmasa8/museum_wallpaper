@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:metropolitan_museum/controllers/wallpaper_controller.dart';
+import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
 import 'package:metropolitan_museum/view/utils/helpers/style_helper.dart';
 
 class SetButton extends StatelessWidget {
+  final WallpaperController wallpaperController;
+  final MetropolitanMuseum wallpaper;
   const SetButton({
     Key? key,
+    required this.wallpaper,
+    required this.wallpaperController
   }) : super(key: key);
 
   @override
@@ -39,6 +45,8 @@ class SetButton extends StatelessWidget {
                   ),
                   ListTile(
                     onTap: () {
+                      wallpaperController
+                          .setOnHomeScreen(wallpaper.primaryImage.toString());
                       Get.back();
                     },
                     leading: const Icon(
@@ -52,6 +60,8 @@ class SetButton extends StatelessWidget {
                   ),
                   ListTile(
                     onTap: () {
+                      wallpaperController
+                          .setOnLockScreen(wallpaper.primaryImage.toString());
                       Get.back();
                     },
                     leading: const Icon(
@@ -65,6 +75,8 @@ class SetButton extends StatelessWidget {
                   ),
                   ListTile(
                     onTap: () {
+                      wallpaperController
+                          .setOnLockAndHomeScreen(wallpaper.primaryImage.toString());
                       Get.back();
                     },
                     leading: const Icon(
