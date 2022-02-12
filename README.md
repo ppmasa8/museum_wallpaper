@@ -1,8 +1,8 @@
-## problems
+## Problems
 
 -　It takes too long to display the image.
 
-## survey
+## Survey
 
 - Measure the time until the api response comes back.
 - Measure the time it takes to display the image after getting the URL. 
