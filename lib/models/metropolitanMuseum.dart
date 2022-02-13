@@ -1,3 +1,8 @@
+import 'package:hive/hive.dart';
+
+part 'metropolitanMuseum.g.dart';
+
+@HiveType(typeId: 0)
 class MetropolitanMuseum {
   MetropolitanMuseum({
     this.objectId,
@@ -17,14 +22,15 @@ class MetropolitanMuseum {
     this.artistBeginDate,
     this.artistEndDate,
     this.artistGender,
-    this.artistWikidataUrl,
     this.objectDate,
     this.objectBeginDate,
     this.objectEndDate,
+    this.objectWikidataUrl,
   });
 
   int? objectId;
   String? accessionYear;
+  @HiveField(0)
   String? primaryImage;
   String? primaryImageSmall;
   String? department;
@@ -40,10 +46,11 @@ class MetropolitanMuseum {
   String? artistBeginDate;
   String? artistEndDate;
   String? artistGender;
-  String? artistWikidataUrl;
   String? objectDate;
   int? objectBeginDate;
   int? objectEndDate;
+  @HiveField(1)
+  String? objectWikidataUrl;
 
   factory MetropolitanMuseum.fromJson(Map<String, dynamic> json) => MetropolitanMuseum(
     objectId: json["objectID"],
@@ -63,10 +70,10 @@ class MetropolitanMuseum {
     artistBeginDate: json["artistBeginDate"],
     artistEndDate: json["artistEndDate"],
     artistGender: json["artistGender"],
-    artistWikidataUrl: json["artistWikidata_URL"],
     objectDate: json["objectDate"],
     objectBeginDate: json["objectBeginDate"],
     objectEndDate: json["objectEndDate"],
+    objectWikidataUrl: json["objectWikidata_URL"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -87,9 +94,9 @@ class MetropolitanMuseum {
     "artistBeginDate": artistBeginDate,
     "artistEndDate": artistEndDate,
     "artistGender": artistGender,
-    "artistWikidata_URL": artistWikidataUrl,
     "objectDate": objectDate,
     "objectBeginDate": objectBeginDate,
     "objectEndDate": objectEndDate,
+    "objectWikidata_URL": objectWikidataUrl,
   };
 }
