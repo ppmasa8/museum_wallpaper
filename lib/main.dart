@@ -6,7 +6,7 @@ import 'view/screens/homeview.dart';
 
 Future<void> main() async {
   await Hive.initFlutter();
-  Hive.openBox<String>(downloadBox);
+  await Hive.openBox<String>(downloadBox);
   runApp(const MyApp());
 }
 
