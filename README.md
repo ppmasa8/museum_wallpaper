@@ -1,6 +1,6 @@
 ## Problems
 
-- It takes too long to display the image.
+It takes too long to display the image.
 
 ## Survey
 
