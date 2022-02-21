@@ -15,26 +15,40 @@ class FavoriteWidgets extends StatelessWidget {
         valueListenable: Hive.box<MetropolitanMuseum>(favoriteBox).listenable(),
         builder: (context, Box<MetropolitanMuseum> box, child) {
           final List<String> keys = box.keys.cast<String>().toList();
-          return GridView.builder(
-            physics: const BouncingScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 30,
-              crossAxisSpacing: 30,
-              childAspectRatio: 2 / 2.7,
-            ),
-            itemCount: 8,
-            itemBuilder: (context, index) {
-              final String key = keys[index];
-              final MetropolitanMuseum? wallpaper = box.get(key);
-              return Container(
-                color: pinkcolor,
-                child: Image.network(""),
+          return keys.isEmpty
+              ? const EmptyList()
+              : GridView.builder(
+                physics: const BouncingScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 30,
+                  crossAxisSpacing: 30,
+                  childAspectRatio: 2 / 2.7,
+                ),
+                itemCount: keys.length,
+                itemBuilder: (context, index) {
+                  final String key = keys[index];
+                  final MetropolitanMuseum? wallpaper = box.get(key);
+                  return Container(
+                    color: pinkcolor,
+                    child: Image.network(wallpaper!.primaryImage.toString()),
+                  );
+                }
               );
-            }
-          );
         }
       ),
     );
   }
 }
+
+class EmptyList extends StatelessWidget {
+  const EmptyList({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text("Empty list"),
+    );
+  }
+}
+

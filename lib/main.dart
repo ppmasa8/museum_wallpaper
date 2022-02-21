@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
+import 'package:metropolitan_museum/view/screens/favorite_view.dart';
 import 'package:metropolitan_museum/view/utils/constants/const.dart';
 import 'view/screens/homeview.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeView(),
+      home: const FavoriteView(),
     );
   }
 }
