@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:metropolitan_museum/controllers/favorite_controller.dart';
 import 'package:metropolitan_museum/controllers/wallpaper_controller.dart';
 import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
@@ -58,15 +59,19 @@ class WallpaperView extends StatelessWidget {
                           wallpaper: wallpaper,
                           wallpaperController: controller,
                         ),
-                        CircleAvatar(
-                          backgroundColor: whitecolor,
-                          child: WallpaperViewButton(
-                              onPressed: (){
-
-                              },
-                              color: pinkcolor,
-                              iconData: Icons.favorite_border
-                          ),
+                        GetBuilder<FavoriteController>(
+                          init: FavoriteController(),
+                          initState: (_) {},
+                          builder: (controller) {
+                            return CircleAvatar(
+                              backgroundColor: whitecolor,
+                              child: WallpaperViewButton(
+                                onPressed: (){},
+                                color: pinkcolor,
+                                iconData: Icons.favorite_border
+                              ),
+                            );
+                          },
                         )
                       ],
                     );
