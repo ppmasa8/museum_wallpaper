@@ -32,51 +32,56 @@ class WallpaperView extends StatelessWidget {
               children: [
                 WallpaperViewButton(
                   color: whitecolor,
-                  onPressed: (){
+                  onPressed: () {
                     Get.back();
                   },
                   iconData: Icons.arrow_back_ios,
                 ),
                 GetBuilder<WallpaperController>(
-                  init: WallpaperController(),
-                  builder: (controller) {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: pinkcolor,
-                          child: WallpaperViewButton(
-                              onPressed: (){
-                                controller.downloadTheWallpaper(
-                                  wallpaper.primaryImage.toString()
-                                );
-                              },
-                              color: whitecolor,
-                              iconData: Icons.file_download_outlined
+                    init: WallpaperController(),
+                    builder: (controller) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: pinkcolor,
+                            child: WallpaperViewButton(
+                                onPressed: () {
+                                  controller.downloadTheWallpaper(
+                                      wallpaper.primaryImage.toString());
+                                },
+                                color: whitecolor,
+                                iconData: Icons.file_download_outlined),
                           ),
-                        ),
-                        SetButton(
-                          wallpaper: wallpaper,
-                          wallpaperController: controller,
-                        ),
-                        GetBuilder<FavoriteController>(
-                          init: FavoriteController(),
-                          initState: (_) {},
-                          builder: (controller) {
-                            return CircleAvatar(
-                              backgroundColor: whitecolor,
-                              child: WallpaperViewButton(
-                                onPressed: (){},
-                                color: pinkcolor,
-                                iconData: Icons.favorite_border
-                              ),
-                            );
-                          },
-                        )
-                      ],
-                    );
-                  }
-                )
+                          SetButton(
+                            wallpaper: wallpaper,
+                            wallpaperController: controller,
+                          ),
+                          GetBuilder<FavoriteController>(
+                            init: FavoriteController(),
+                            initState: (con) {
+                              Future.delayed(const Duration(seconds: 0)).then((value) {
+                                con.controller!.inTheList(
+                                    wallpaper.primaryImage.toString());
+                              });
+                            },
+                            builder: (controller) {
+                              return CircleAvatar(
+                                backgroundColor: whitecolor,
+                                child: WallpaperViewButton(
+                                    onPressed: () {
+                                      controller.favoriteToggler(wallpaper);
+                                    },
+                                    color: pinkcolor,
+                                    iconData:controller.isFavorite
+                                    ? Icons.favorite
+                                    : Icons.favorite_border),
+                              );
+                            },
+                          )
+                        ],
+                      );
+                    })
               ],
             ),
           )
@@ -85,4 +90,3 @@ class WallpaperView extends StatelessWidget {
     );
   }
 }
-

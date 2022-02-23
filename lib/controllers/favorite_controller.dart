@@ -34,8 +34,13 @@ class FavoriteController extends BaseController {
     update();
   }
 
-  void favoriteToggler() {
+  void favoriteToggler(MetropolitanMuseum data) {
     isFavorite = !isFavorite;
+    if (isFavorite) {
+      insertWallpaperToTheList(data);
+    } else {
+      deleteWallpaperFromTheList(data.primaryImage.toString());
+    }
     update();
   }
 }
