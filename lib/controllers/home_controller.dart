@@ -5,24 +5,35 @@ import 'package:metropolitan_museum/view/utils/constants/const.dart';
 
 class HomeController extends BaseController {
   final RestApiService _restApiService = RestApiService();
-  List<MetropolitanMuseum> todaysList = [];
+  // ignore: todo
+  // TODO: Change the list name.
+  List<MetropolitanMuseum> landscapesList = [];
   List<MetropolitanMuseum> popularList = [];
   List<MetropolitanMuseum> oldestList = [];
 
-  // search today
+  // These number is the result of a search for the word "landscape" on MetropolitanMuseumApi.
   Future<void> getListOfToday() async {
-    todaysList += await _restApiService.convertJsonToObject(api + "${423169}");
-    todaysList += await _restApiService.convertJsonToObject(api + "${200734}");
-    todaysList += await _restApiService.convertJsonToObject(api + "${57853}");
-    todaysList += await _restApiService.convertJsonToObject(api + "${20708}");
-    todaysList += await _restApiService.convertJsonToObject(api + "${21661}");
-    todaysList += await _restApiService.convertJsonToObject(api + "${200732}");
-    todaysList += await _restApiService.convertJsonToObject(api + "${201784}");
-    todaysList += await _restApiService.convertJsonToObject(api + "${207128}");
-    todaysList += await _restApiService.convertJsonToObject(api + "${207125}");
+    landscapesList +=
+        await _restApiService.convertJsonToObject(api + "${359362}");
+    landscapesList +=
+        await _restApiService.convertJsonToObject(api + "${10181}");
+    landscapesList +=
+        await _restApiService.convertJsonToObject(api + "${11978}");
+    landscapesList +=
+        await _restApiService.convertJsonToObject(api + "${11231}");
+    landscapesList +=
+        await _restApiService.convertJsonToObject(api + "${11181}");
+    landscapesList +=
+        await _restApiService.convertJsonToObject(api + "${437323}");
+    landscapesList +=
+        await _restApiService.convertJsonToObject(api + "${11774}");
+    landscapesList +=
+        await _restApiService.convertJsonToObject(api + "${436455}");
+    landscapesList +=
+        await _restApiService.convertJsonToObject(api + "${36131}");
   }
 
-  // search popular
+  // These number is the result of a search for the word "popular" on MetropolitanMuseumApi.
   Future<void> getListOfPopular() async {
     popularList += await _restApiService.convertJsonToObject(api + "${500667}");
     popularList += await _restApiService.convertJsonToObject(api + "${3411}");
@@ -35,7 +46,7 @@ class HomeController extends BaseController {
     popularList += await _restApiService.convertJsonToObject(api + "${426348}");
   }
 
-  // search old
+  // These number is the result of a search for the word "old" on MetropolitanMuseumApi.
   Future<void> getListOfOldest() async {
     oldestList += await _restApiService.convertJsonToObject(api + "${328905}");
     oldestList += await _restApiService.convertJsonToObject(api + "${322890}");
