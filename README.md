@@ -18,8 +18,5 @@
 - lib/view/utils/helpers/style_helper.dart
 - lib/view/utils/helpers/color_helper.dart
 - lib/view/utils/shared/shared_grid_widget.dart
-- lib/view/screens/homeview.dart
+- lib/view/screens/home_view.dart
 - lib/view/screens/wallpaper_view.dart
-### Models
-Too waste.
-- lib/models/metropolitanMuseum.dart

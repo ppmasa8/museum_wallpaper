@@ -26,7 +26,7 @@ class SharedGridWidget extends StatelessWidget {
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
             Get.to(() => WallpaperView(
-                wallpaper: wallpapers[5 + index * jsonObjectLength]));
+                wallpaper: wallpapers[primaryImageStartPosition + index * jsonObjectLength]));
           },
           child: ClipRRect(
             borderRadius: BorderRadius.circular(15),
@@ -36,12 +36,12 @@ class SharedGridWidget extends StatelessWidget {
                 color: pinkcolor,
               ),
               child: Hero(
-                tag: wallpapers[5 + index * jsonObjectLength]
+                tag: wallpapers[primaryImageStartPosition + index * jsonObjectLength]
                     .primaryImage
                     .toString(),
                 child: Image.network(
-                  // TODO response faster
-                  wallpapers[5 + index * jsonObjectLength]
+                  // TODO: response faster
+                  wallpapers[primaryImageStartPosition + index * jsonObjectLength]
                       .primaryImage
                       .toString(),
                   fit: BoxFit.cover,

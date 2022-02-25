@@ -12,56 +12,56 @@ class HomeController extends BaseController {
   List<MetropolitanMuseum> oldestList = [];
 
   // These number is the result of a search for the word "landscape" on MetropolitanMuseumApi.
-  Future<void> getListOfToday() async {
+  Future<void> getListOfLandscape() async {
     landscapesList +=
-        await _restApiService.convertJsonToObject(api + "${359362}");
+        await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${359362}");
     landscapesList +=
-        await _restApiService.convertJsonToObject(api + "${10181}");
+        await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${10181}");
     landscapesList +=
-        await _restApiService.convertJsonToObject(api + "${11978}");
+        await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${11978}");
     landscapesList +=
-        await _restApiService.convertJsonToObject(api + "${11231}");
+        await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${11231}");
     landscapesList +=
-        await _restApiService.convertJsonToObject(api + "${11181}");
+        await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${11181}");
     landscapesList +=
-        await _restApiService.convertJsonToObject(api + "${437323}");
+        await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${437323}");
     landscapesList +=
-        await _restApiService.convertJsonToObject(api + "${11774}");
+        await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${11774}");
     landscapesList +=
-        await _restApiService.convertJsonToObject(api + "${436455}");
+        await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${436455}");
     landscapesList +=
-        await _restApiService.convertJsonToObject(api + "${36131}");
+        await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${36131}");
   }
 
   // These number is the result of a search for the word "popular" on MetropolitanMuseumApi.
   Future<void> getListOfPopular() async {
-    popularList += await _restApiService.convertJsonToObject(api + "${500667}");
-    popularList += await _restApiService.convertJsonToObject(api + "${3411}");
-    popularList += await _restApiService.convertJsonToObject(api + "${426342}");
-    popularList += await _restApiService.convertJsonToObject(api + "${426354}");
-    popularList += await _restApiService.convertJsonToObject(api + "${426349}");
-    popularList += await _restApiService.convertJsonToObject(api + "${426344}");
-    popularList += await _restApiService.convertJsonToObject(api + "${426345}");
-    popularList += await _restApiService.convertJsonToObject(api + "${426350}");
-    popularList += await _restApiService.convertJsonToObject(api + "${426348}");
+    popularList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${500667}");
+    popularList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${3411}");
+    popularList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${426342}");
+    popularList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${426354}");
+    popularList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${426349}");
+    popularList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${426344}");
+    popularList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${426345}");
+    popularList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${426350}");
+    popularList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${426348}");
   }
 
   // These number is the result of a search for the word "old" on MetropolitanMuseumApi.
   Future<void> getListOfOldest() async {
-    oldestList += await _restApiService.convertJsonToObject(api + "${328905}");
-    oldestList += await _restApiService.convertJsonToObject(api + "${322890}");
-    oldestList += await _restApiService.convertJsonToObject(api + "${44292}");
-    oldestList += await _restApiService.convertJsonToObject(api + "${751543}");
-    oldestList += await _restApiService.convertJsonToObject(api + "${717577}");
-    oldestList += await _restApiService.convertJsonToObject(api + "${328902}");
-    oldestList += await _restApiService.convertJsonToObject(api + "${322272}");
-    oldestList += await _restApiService.convertJsonToObject(api + "${327457}");
-    oldestList += await _restApiService.convertJsonToObject(api + "${323535}");
+    oldestList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${328905}");
+    oldestList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${322890}");
+    oldestList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${44292}");
+    oldestList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${751543}");
+    oldestList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${717577}");
+    oldestList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${328902}");
+    oldestList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${322272}");
+    oldestList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${327457}");
+    oldestList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(api + "${323535}");
   }
 
   void getllData() async {
     setState(true);
-    await getListOfToday();
+    await getListOfLandscape();
     await getListOfPopular();
     await getListOfOldest();
     setState(false);
