@@ -45,12 +45,11 @@ class HomeController extends PopularController {
 
   Future<void> addMoreDataToLandscapeList() async {
     List<MetropolitanMuseum> wallpapers = [];
-    wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
-        api + "${landscapeObjectIDArray[landscapesPageNumber]}");
-    landscapesPageNumber++;
-    wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
-        api + "${landscapeObjectIDArray[landscapesPageNumber]}");
-    landscapesPageNumber++;
+    for (var i = 0; i < 10; i++) {
+      wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
+          api + "${landscapeObjectIDArray[landscapesPageNumber]}");
+      landscapesPageNumber++;
+    }
     landscapesList.addAll(wallpapers);
     update();
   }
