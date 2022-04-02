@@ -10,8 +10,10 @@ class OldestController extends BaseController {
   // TODO: Change the list name.
   final ScrollController oldestScrollController = ScrollController();
   List<MetropolitanMuseum> oldestList = [];
+
   // These number is the result of a search for the word "old" on MetropolitanMuseumApi.
   Future<void> getListOfOldest() async {
+    setState(true);
     oldestList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${328905}");
     oldestList += await _restApiService
@@ -30,5 +32,35 @@ class OldestController extends BaseController {
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${327457}");
     oldestList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${323535}");
+    setState(false);
+  }
+
+  int oldestPageNumber = 0;
+
+  void loadMoreData() {
+    oldestScrollController.addListener(() async {
+      if (oldestScrollController.position.pixels ==
+          oldestScrollController.position.maxScrollExtent) {
+        await addMoreDataToOldestList();
+      }
+    });
+  }
+
+  Future<void> addMoreDataToOldestList() async {
+    List<MetropolitanMuseum> wallpapers = [];
+    for (var i = 0; i < 10; i++) {
+      wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
+          api + "${oldestObjectIDArray[oldestPageNumber]}");
+      oldestPageNumber++;
+    }
+    oldestList.addAll(wallpapers);
+    update();
+  }
+
+  @override
+  void onInit() {
+    getListOfOldest();
+    loadMoreData();
+    super.onInit();
   }
 }

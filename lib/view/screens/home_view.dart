@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:metropolitan_museum/controllers/home_controller.dart';
+import 'package:metropolitan_museum/controllers/oldest_controller.dart';
+import 'package:metropolitan_museum/controllers/popular_controller.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
 import 'package:metropolitan_museum/view/utils/helpers/style_helper.dart';
 import 'package:metropolitan_museum/view/utils/shared/shared_grid_widget.dart';
@@ -11,8 +13,8 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
-      child: Scaffold(
+        length: 3,
+        child: Scaffold(
           appBar: AppBar(
             title: const Text("Wallpaper", style: h1),
             centerTitle: true,
@@ -40,46 +42,56 @@ class HomeView extends StatelessWidget {
                     style: links,
                   ),
                   Text(
-                    "OLDES",
+                    "OLDEST",
                     style: links,
                   ),
                 ]),
           ),
-          body: GetBuilder<HomeController>(
-            init: HomeController(),
-            initState: (_) {},
-            builder: (controller) {
-              return TabBarView(
-                physics: const BouncingScrollPhysics(),
-                children: [
-                  controller.state
+          body: TabBarView(
+            physics: const BouncingScrollPhysics(),
+            children: [
+              GetBuilder<HomeController>(
+                init: HomeController(),
+                builder: (controller) {
+                  return controller.state
                       ? const Center(
                           child: CircularProgressIndicator(),
                         )
                       : SharedGridWidget(
                           wallpapers: controller.landscapesList,
-                          scrollController: controller.landscapesScrollController,
-                        ),
-                  controller.state
+                          scrollController:
+                              controller.landscapesScrollController,
+                        );
+                },
+              ),
+              GetBuilder<PopularController>(
+                init: PopularController(),
+                builder: (controller) {
+                  return controller.state
                       ? const Center(
                           child: CircularProgressIndicator(),
                         )
                       : SharedGridWidget(
                           wallpapers: controller.popularList,
                           scrollController: controller.popularScrollController,
-                        ),
-                  controller.state
+                        );
+                },
+              ),
+              GetBuilder<OldestController>(
+                init: OldestController(),
+                builder: (controller) {
+                  return controller.state
                       ? const Center(
                           child: CircularProgressIndicator(),
                         )
                       : SharedGridWidget(
                           wallpapers: controller.oldestList,
                           scrollController: controller.oldestScrollController,
-                        )
-                ],
-              );
-            },
-          )),
-    );
+                        );
+                },
+              )
+            ],
+          ),
+        ));
   }
 }
