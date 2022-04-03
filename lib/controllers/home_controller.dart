@@ -46,6 +46,7 @@ class HomeController extends BaseController {
   }
 
   Future<void> addMoreDataToLandscapeList() async {
+    setBottomState(true);
     List<MetropolitanMuseum> wallpapers = [];
     for (var i = 0; i < 10; i++) {
       wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
@@ -53,7 +54,7 @@ class HomeController extends BaseController {
       landscapesPageNumber++;
     }
     landscapesList.addAll(wallpapers);
-    update();
+    setBottomState(false);
   }
 
   @override

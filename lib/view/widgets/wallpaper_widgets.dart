@@ -134,3 +134,20 @@ class WallpaperViewButton extends StatelessWidget {
     );
   }
 }
+
+class ProgressIndication extends StatelessWidget {
+  const ProgressIndication({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.all(8.0),
+      child: CircleAvatar(
+          backgroundColor: blackcolor,
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: CircularProgressIndicator(color: whitecolor),
+          )),
+    );
+  }
+}
