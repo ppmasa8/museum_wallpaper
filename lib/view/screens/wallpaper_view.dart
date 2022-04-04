@@ -44,7 +44,7 @@ class WallpaperView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           CircleAvatar(
-                            backgroundColor: pinkcolor,
+                            backgroundColor: greycolor,
                             child: WallpaperViewButton(
                                 onPressed: () {
                                   controller.downloadTheWallpaper(
@@ -72,7 +72,7 @@ class WallpaperView extends StatelessWidget {
                                     onPressed: () {
                                       controller.favoriteToggler(wallpaper);
                                     },
-                                    color: pinkcolor,
+                                    color: greycolor,
                                     iconData:controller.isFavorite
                                     ? Icons.favorite
                                     : Icons.favorite_border),

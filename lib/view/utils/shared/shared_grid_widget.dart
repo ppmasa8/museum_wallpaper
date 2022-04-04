@@ -46,7 +46,7 @@ class SharedGridWidget extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: pinkcolor,
+                    color: greycolor,
                   ),
                   child: Hero(
                     tag: wallpapers[primaryImageStartPosition +

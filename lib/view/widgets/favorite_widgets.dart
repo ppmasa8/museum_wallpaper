@@ -45,7 +45,7 @@ class FavoriteWidgets extends StatelessWidget {
                                 child: Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(15),
-                                    color: pinkcolor,
+                                    color: greycolor,
                                   ),
                                   child: Hero(
                                     tag: wallpaper!.primaryImage.toString(),
