@@ -6,6 +6,7 @@ import 'package:metropolitan_museum/controllers/popular_controller.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
 import 'package:metropolitan_museum/view/utils/helpers/style_helper.dart';
 import 'package:metropolitan_museum/view/utils/shared/shared_grid_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -16,7 +17,12 @@ class HomeView extends StatelessWidget {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text("Wallpaper", style: h1),
+            title: Text("Wallpaper",
+                style: GoogleFonts.dancingScript(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 32,
+                  color: blackcolor,
+                )),
             centerTitle: true,
             backgroundColor: whitecolor,
             elevation: 0,
