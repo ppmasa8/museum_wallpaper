@@ -35,4 +35,40 @@ class PopularController extends BaseController {
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${426348}");
     setState(false);
   }
+
+  int popularPageNumber = 0;
+
+  void loadMoreData() {
+    popularScrollController.addListener(() async {
+      if (popularScrollController.position.pixels ==
+          popularScrollController.position.maxScrollExtent) {
+        await addMoreDataToPopularList();
+      }
+    });
+  }
+
+  Future<void> addMoreDataToPopularList() async {
+    setBottomState(true);
+    List<MetropolitanMuseum> wallpapers = [];
+    for (var i = 0; i < 10; i++) {
+      wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
+          api + "${popularObjectIDArray[popularPageNumber]}");
+      popularPageNumber++;
+    }
+    popularList.addAll(wallpapers);
+    setBottomState(false);
+  }
+
+  @override
+  void onInit() {
+    getListOfPopular();
+    loadMoreData();
+    super.onInit();
+  }
+
+  // @override
+  // void onClose() {
+  //   popularScrollController.dispose();
+  //   super.onClose();
+  // }
 }

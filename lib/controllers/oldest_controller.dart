@@ -47,6 +47,7 @@ class OldestController extends BaseController {
   }
 
   Future<void> addMoreDataToOldestList() async {
+    setBottomState(true);
     List<MetropolitanMuseum> wallpapers = [];
     for (var i = 0; i < 10; i++) {
       wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
@@ -54,7 +55,7 @@ class OldestController extends BaseController {
       oldestPageNumber++;
     }
     oldestList.addAll(wallpapers);
-    update();
+    setBottomState(false);
   }
 
   @override
@@ -63,4 +64,10 @@ class OldestController extends BaseController {
     loadMoreData();
     super.onInit();
   }
+
+  // @override
+  // void onClose() {
+  //   oldestScrollController.dispose();
+  //   super.onClose();
+  // }
 }

@@ -63,4 +63,10 @@ class HomeController extends BaseController {
     loadMoreData();
     super.onInit();
   }
+
+  // @override
+  // void onClose() {
+  //   landscapesScrollController.dispose();
+  //   super.onClose();
+  // }
 }
