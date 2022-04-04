@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:metropolitan_museum/controllers/base_controller.dart';
-import 'package:metropolitan_museum/controllers/popular_controller.dart';
 import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
 import 'package:metropolitan_museum/services/rest_api_service.dart';
 import 'package:metropolitan_museum/view/utils/constants/const.dart';
