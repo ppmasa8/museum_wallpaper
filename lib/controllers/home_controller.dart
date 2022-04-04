@@ -31,8 +31,6 @@ class HomeController extends BaseController {
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${11774}");
     landscapesList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${436455}");
-    landscapesList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${36131}");
     setState(false);
   }
 

@@ -30,8 +30,6 @@ class OldestController extends BaseController {
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${322272}");
     oldestList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${327457}");
-    oldestList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${323535}");
     setState(false);
   }
 

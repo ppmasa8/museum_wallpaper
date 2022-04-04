@@ -31,8 +31,6 @@ class PopularController extends BaseController {
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${426345}");
     popularList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${426350}");
-    popularList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${426348}");
     setState(false);
   }
 
