@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:metropolitan_museum/controllers/download_controller.dart';
+import 'package:metropolitan_museum/view/screens/wallpaper_view.dart';
+import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
 
 class DownloadWidgets extends StatelessWidget {
@@ -35,7 +37,13 @@ class DownloadWidgets extends StatelessWidget {
                             final String? wallpaper = box.get(key);
                             File file = File(wallpaper!);
                             return GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Get.to(() => WallpaperView(
+                                      wallpaper: MetropolitanMuseum(
+                                          primaryImage: wallpaper),
+                                      cameFromDownloadView: true,
+                                    ));
+                              },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15),
                                 child: Container(

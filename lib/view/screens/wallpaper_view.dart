@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:metropolitan_museum/controllers/favorite_controller.dart';
@@ -8,22 +9,35 @@ import 'package:metropolitan_museum/view/widgets/wallpaper_widgets.dart';
 
 class WallpaperView extends StatelessWidget {
   final MetropolitanMuseum wallpaper;
-  const WallpaperView({Key? key, required this.wallpaper}) : super(key: key);
+  final bool cameFromDownloadView;
+  const WallpaperView(
+      {Key? key, required this.wallpaper, required this.cameFromDownloadView})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Hero(
-            tag: wallpaper.primaryImage.toString(),
-            child: Image.network(
-              wallpaper.primaryImage.toString(),
-              height: Get.height,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          ),
+          cameFromDownloadView
+              ? Hero(
+                  tag: wallpaper.primaryImage.toString(),
+                  child: Image.file(
+                    File(wallpaper.primaryImage.toString()),
+                    height: Get.height,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                )
+              : Hero(
+                  tag: wallpaper.primaryImage.toString(),
+                  child: Image.network(
+                    wallpaper.primaryImage.toString(),
+                    height: Get.height,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
             child: Column(
@@ -60,7 +74,8 @@ class WallpaperView extends StatelessWidget {
                           GetBuilder<FavoriteController>(
                             init: FavoriteController(),
                             initState: (con) {
-                              Future.delayed(const Duration(seconds: 0)).then((value) {
+                              Future.delayed(const Duration(seconds: 0))
+                                  .then((value) {
                                 con.controller!.inTheList(
                                     wallpaper.primaryImage.toString());
                               });
@@ -73,9 +88,9 @@ class WallpaperView extends StatelessWidget {
                                       controller.favoriteToggler(wallpaper);
                                     },
                                     color: greycolor,
-                                    iconData:controller.isFavorite
-                                    ? Icons.favorite
-                                    : Icons.favorite_border),
+                                    iconData: controller.isFavorite
+                                        ? Icons.favorite
+                                        : Icons.favorite_border),
                               );
                             },
                           )

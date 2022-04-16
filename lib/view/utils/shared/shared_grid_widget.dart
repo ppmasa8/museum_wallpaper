@@ -38,8 +38,10 @@ class SharedGridWidget extends StatelessWidget {
               onTap: () {
                 print(wallpapers.length);
                 Get.to(() => WallpaperView(
-                    wallpaper: wallpapers[
-                        primaryImageStartPosition + index * jsonObjectLength]));
+                      wallpaper: wallpapers[
+                          primaryImageStartPosition + index * jsonObjectLength],
+                      cameFromDownloadView: false,
+                    ));
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),

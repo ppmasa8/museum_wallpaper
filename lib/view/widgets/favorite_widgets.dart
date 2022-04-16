@@ -38,6 +38,7 @@ class FavoriteWidgets extends StatelessWidget {
                               onTap: () {
                                 Get.to(() => WallpaperView(
                                       wallpaper: wallpaper!,
+                                      cameFromDownloadView: false,
                                     ));
                               },
                               child: ClipRRect(
