@@ -6,6 +6,9 @@ import 'package:metropolitan_museum/controllers/download_controller.dart';
 import 'package:metropolitan_museum/view/screens/wallpaper_view.dart';
 import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:metropolitan_museum/view/utils/constants/const.dart';
+
 
 class DownloadWidgets extends StatelessWidget {
   const DownloadWidgets({Key? key}) : super(key: key);
@@ -35,6 +38,7 @@ class DownloadWidgets extends StatelessWidget {
                           itemBuilder: (context, index) {
                             final String key = keys[index];
                             final String? wallpaper = box.get(key);
+                            final data = rootBundle.load(downloadBox);
                             File file = File(wallpaper!);
                             return GestureDetector(
                               onTap: () {
