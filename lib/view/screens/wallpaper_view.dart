@@ -57,43 +57,49 @@ class WallpaperView extends StatelessWidget {
                       return Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          CircleAvatar(
-                            backgroundColor: greycolor,
-                            child: WallpaperViewButton(
-                                onPressed: () {
-                                  controller.downloadTheWallpaper(
-                                      wallpaper.primaryImage.toString());
-                                },
-                                color: whitecolor,
-                                iconData: Icons.file_download_outlined),
-                          ),
+                          cameFromDownloadView
+                              ? Container()
+                              : CircleAvatar(
+                                  backgroundColor: greycolor,
+                                  child: WallpaperViewButton(
+                                      onPressed: () {
+                                        controller.downloadTheWallpaper(
+                                            wallpaper.primaryImage.toString());
+                                      },
+                                      color: whitecolor,
+                                      iconData: Icons.file_download_outlined),
+                                ),
                           SetButton(
                             wallpaper: wallpaper,
                             wallpaperController: controller,
+                            cameFromDownloadView: cameFromDownloadView,
                           ),
-                          GetBuilder<FavoriteController>(
-                            init: FavoriteController(),
-                            initState: (con) {
-                              Future.delayed(const Duration(seconds: 0))
-                                  .then((value) {
-                                con.controller!.inTheList(
-                                    wallpaper.primaryImage.toString());
-                              });
-                            },
-                            builder: (controller) {
-                              return CircleAvatar(
-                                backgroundColor: whitecolor,
-                                child: WallpaperViewButton(
-                                    onPressed: () {
-                                      controller.favoriteToggler(wallpaper);
-                                    },
-                                    color: greycolor,
-                                    iconData: controller.isFavorite
-                                        ? Icons.favorite
-                                        : Icons.favorite_border),
-                              );
-                            },
-                          )
+                          cameFromDownloadView
+                              ? Container()
+                              : GetBuilder<FavoriteController>(
+                                  init: FavoriteController(),
+                                  initState: (con) {
+                                    Future.delayed(const Duration(seconds: 0))
+                                        .then((value) {
+                                      con.controller!.inTheList(
+                                          wallpaper.primaryImage.toString());
+                                    });
+                                  },
+                                  builder: (controller) {
+                                    return CircleAvatar(
+                                      backgroundColor: whitecolor,
+                                      child: WallpaperViewButton(
+                                          onPressed: () {
+                                            controller
+                                                .favoriteToggler(wallpaper);
+                                          },
+                                          color: greycolor,
+                                          iconData: controller.isFavorite
+                                              ? Icons.favorite
+                                              : Icons.favorite_border),
+                                    );
+                                  },
+                                )
                         ],
                       );
                     })

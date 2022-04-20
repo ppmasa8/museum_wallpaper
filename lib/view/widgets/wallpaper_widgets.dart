@@ -8,88 +8,97 @@ import 'package:metropolitan_museum/view/utils/helpers/style_helper.dart';
 class SetButton extends StatelessWidget {
   final WallpaperController wallpaperController;
   final MetropolitanMuseum wallpaper;
-  const SetButton({
-    Key? key,
-    required this.wallpaper,
-    required this.wallpaperController
-  }) : super(key: key);
+  final bool cameFromDownloadView;
+  const SetButton(
+      {Key? key,
+      required this.wallpaper,
+      required this.wallpaperController,
+      required this.cameFromDownloadView})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         showBottomSheet(
             backgroundColor: Colors.transparent,
             context: context,
             builder: (context) => Container(
-              decoration: const BoxDecoration(
-                  color: whitecolor,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10))),
-              height: Get.height * 0.4,
-              child: ListView(
-                children: [
-                  ListTile(
-                    onTap: () {
-                      Get.back();
-                    },
-                    leading: const Text(
-                      "Set Wallpaper as :",
-                      style: h1,
-                    ),
-                    trailing: const Icon(
-                      Icons.cancel_outlined,
-                      color: blackcolor,
-                    ),
+                  decoration: const BoxDecoration(
+                      color: whitecolor,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10))),
+                  height: Get.height * 0.4,
+                  child: ListView(
+                    children: [
+                      ListTile(
+                        onTap: () {
+                          Get.back();
+                        },
+                        leading: const Text(
+                          "Set Wallpaper as :",
+                          style: h1,
+                        ),
+                        trailing: const Icon(
+                          Icons.cancel_outlined,
+                          color: blackcolor,
+                        ),
+                      ),
+                      ListTile(
+                        onTap: () {
+                          wallpaperController.setOnHomeScreen(
+                              imagePath: wallpaper.primaryImage.toString(),
+                              url: wallpaper.primaryImage.toString(),
+                              download: cameFromDownloadView);
+                          Get.back();
+                        },
+                        leading: const Icon(
+                          Icons.home_filled,
+                          color: blackcolor,
+                        ),
+                        title: const Text(
+                          "Home Screen",
+                          style: h1,
+                        ),
+                      ),
+                      ListTile(
+                        onTap: () {
+                          wallpaperController.setOnLockScreen(
+                              imagePath: wallpaper.primaryImage.toString(),
+                              url: wallpaper.primaryImage.toString(),
+                              download: cameFromDownloadView);
+                          Get.back();
+                        },
+                        leading: const Icon(
+                          Icons.lock_open,
+                          color: blackcolor,
+                        ),
+                        title: const Text(
+                          "Lock Screen",
+                          style: h1,
+                        ),
+                      ),
+                      ListTile(
+                        onTap: () {
+                          wallpaperController.setOnLockAndHomeScreen(
+                              imagePath: wallpaper.primaryImage.toString(),
+                              url: wallpaper.primaryImage.toString(),
+                              download: cameFromDownloadView);
+                          Get.back();
+                        },
+                        leading: const Icon(
+                          Icons.screen_lock_landscape,
+                          color: blackcolor,
+                        ),
+                        title: const Text(
+                          "Home & Lock Screen",
+                          style: h1,
+                        ),
+                      )
+                    ],
                   ),
-                  ListTile(
-                    onTap: () {
-                      wallpaperController
-                          .setOnHomeScreen(wallpaper.primaryImage.toString());
-                      Get.back();
-                    },
-                    leading: const Icon(
-                      Icons.home_filled,
-                      color: blackcolor,
-                    ),
-                    title: const Text(
-                      "Home Screen",
-                      style: h1,
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () {
-                      wallpaperController
-                          .setOnLockScreen(wallpaper.primaryImage.toString());
-                      Get.back();
-                    },
-                    leading: const Icon(
-                      Icons.lock_open,
-                      color: blackcolor,
-                    ),
-                    title: const Text(
-                      "Lock Screen",
-                      style: h1,
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () {
-                      wallpaperController
-                          .setOnLockAndHomeScreen(wallpaper.primaryImage.toString());
-                      Get.back();
-                    },
-                    leading: const Icon(
-                      Icons.screen_lock_landscape,
-                      color: blackcolor,
-                    ),
-                    title: const Text(
-                      "Home & Lock Screen",
-                      style: h1,
-                    ),
-                  )
-                ],),
-            ));
+                ));
       },
       child: Container(
         padding: EdgeInsets.symmetric(
@@ -114,12 +123,12 @@ class WallpaperViewButton extends StatelessWidget {
   final Color color;
   final IconData iconData;
 
-  const WallpaperViewButton(
-      {Key? key,
-        required this.onPressed,
-        required this.color,
-        required this.iconData,
-      }) : super(key: key);
+  const WallpaperViewButton({
+    Key? key,
+    required this.onPressed,
+    required this.color,
+    required this.iconData,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

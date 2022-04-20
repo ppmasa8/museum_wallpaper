@@ -14,10 +14,17 @@ class WallpaperController extends DownloadController {
       duration: Duration(seconds: 2),
     ));
   }
+
 // Set
-  Future<void> setOnHomeScreen(String url) async {
-    var filePath = await cacheWallpaper(url);
-    await homeScreen(filePath.path);
+  Future<void> setOnHomeScreen(
+      {String? url, String? imagePath, bool? download}) async {
+    if (download!) {
+      await homeScreen(imagePath!);
+    } else {
+      var filePath = await cacheWallpaper(url!);
+      await homeScreen(filePath.path);
+    }
+
     Get.showSnackbar(const GetSnackBar(
       title: 'Done',
       message: 'The Wallpaper saved on home screen',
@@ -25,9 +32,15 @@ class WallpaperController extends DownloadController {
     ));
   }
 
-  Future<void> setOnLockScreen(String url) async {
-    var filePath = await cacheWallpaper(url);
-    await lockScreen(filePath.path);
+  Future<void> setOnLockScreen(
+      {String? url, String? imagePath, bool? download}) async {
+    if (download!) {
+       await lockScreen(imagePath!);
+    } else {
+      var filePath = await cacheWallpaper(url!);
+      await lockScreen(filePath.path);
+    }
+
     Get.showSnackbar(const GetSnackBar(
       title: 'Done',
       message: 'The Wallpaper saved on lock screen',
@@ -35,34 +48,45 @@ class WallpaperController extends DownloadController {
     ));
   }
 
-  Future<void> setOnLockAndHomeScreen(String url) async {
-    var filePath = await cacheWallpaper(url);
-    await homeScreen(filePath.path);
-    await lockScreen(filePath.path);
+  Future<void> setOnLockAndHomeScreen(
+      {String? url, String? imagePath, bool? download}) async {
+    if (download!) {
+      await homeScreen(imagePath!);
+      await lockScreen(imagePath);
+    } else {
+      var filePath = await cacheWallpaper(url!);
+      await homeScreen(filePath.path);
+      await lockScreen(filePath.path);
+    }
+
     Get.showSnackbar(const GetSnackBar(
       title: 'Done',
       message: 'The Wallpaper saved on home and lock screen',
       duration: Duration(seconds: 2),
     ));
   }
+
 // Screens
   Future<void> homeScreen(String path) async {
-    await WallpaperManager.setWallpaperFromFile(path, WallpaperManager.HOME_SCREEN);
+    await WallpaperManager.setWallpaperFromFile(
+        path, WallpaperManager.HOME_SCREEN);
   }
 
   Future<void> lockScreen(String path) async {
-    await WallpaperManager.setWallpaperFromFile(path, WallpaperManager.LOCK_SCREEN);
+    await WallpaperManager.setWallpaperFromFile(
+        path, WallpaperManager.LOCK_SCREEN);
   }
 
   Future<void> lockAndHomeScreen(String path) async {
-    await WallpaperManager.setWallpaperFromFile(path, WallpaperManager.HOME_SCREEN);
-    await WallpaperManager.setWallpaperFromFile(path, WallpaperManager.LOCK_SCREEN);
+    await WallpaperManager.setWallpaperFromFile(
+        path, WallpaperManager.HOME_SCREEN);
+    await WallpaperManager.setWallpaperFromFile(
+        path, WallpaperManager.LOCK_SCREEN);
   }
+
 // download first
   Future<File> cacheWallpaper(String url) async {
     var file = await DefaultCacheManager().getSingleFile(url);
     return file;
   }
-
-
 }
