@@ -1,8 +1,6 @@
 ## Problems
 
 - It takes too long to display the image.
-- Pagenation.
-- downloads_widget.
 
 ## Survey
 
