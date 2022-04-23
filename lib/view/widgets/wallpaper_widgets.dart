@@ -111,7 +111,7 @@ class SetButton extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: greycolor,
+          color:  Colors.cyan,
         ),
       ),
     );

@@ -66,7 +66,7 @@ class WallpaperView extends StatelessWidget {
                                         controller.downloadTheWallpaper(
                                             wallpaper.primaryImage.toString());
                                       },
-                                      color: whitecolor,
+                                      color: Colors.cyan,
                                       iconData: Icons.file_download_outlined),
                                 ),
                           SetButton(
