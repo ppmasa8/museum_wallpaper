@@ -11,7 +11,7 @@ class WallpaperController extends DownloadController {
     Get.showSnackbar(const GetSnackBar(
       title: 'Done',
       message: 'Image Download',
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 1),
     ));
   }
 
@@ -28,7 +28,7 @@ class WallpaperController extends DownloadController {
     Get.showSnackbar(const GetSnackBar(
       title: 'Done',
       message: 'The Wallpaper saved on home screen',
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 1),
     ));
   }
 
@@ -44,7 +44,7 @@ class WallpaperController extends DownloadController {
     Get.showSnackbar(const GetSnackBar(
       title: 'Done',
       message: 'The Wallpaper saved on lock screen',
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 1),
     ));
   }
 
@@ -62,7 +62,7 @@ class WallpaperController extends DownloadController {
     Get.showSnackbar(const GetSnackBar(
       title: 'Done',
       message: 'The Wallpaper saved on home and lock screen',
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 1),
     ));
   }
 
