@@ -18,7 +18,7 @@ class WallpaperController extends DownloadController {
 // Set
   Future<void> setOnHomeScreen(
       {String? url, String? imagePath, bool? download}) async {
-    
+
     if (download!) {
       await homeScreen(imagePath!);
     } else {
@@ -36,7 +36,7 @@ class WallpaperController extends DownloadController {
   Future<void> setOnLockScreen(
       {String? url, String? imagePath, bool? download}) async {
     if (download!) {
-       await lockScreen(imagePath!);
+      await lockScreen(imagePath!);
     } else {
       var filePath = await cacheWallpaper(url!);
       await lockScreen(filePath.path);
