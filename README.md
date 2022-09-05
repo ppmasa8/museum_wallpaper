@@ -1,14 +1,16 @@
-## Problems
+# Museum Wallpaper
+It is a wallpaper application for smartphones. 
 
-- It takes too long to display the image.
+Wallpaper can be taken from the Metropolitan Museum of Art collections.
 
-## Solutions
+# Using
+- Dart/flutter
+- [NoSQL(Hive)](https://pub.dev/packages/hive)
+- [metropolitan museum api](https://metmuseum.github.io/)
 
-- The first 100 or so images will be displayed directly from the url obtained from the api, and if the number of images exceeds that number, or if the user searches for images, the images will be retrieved from the api.
-- Put everything into the database in advance.
+# Structure
+![pp drawio](https://user-images.githubusercontent.com/75968942/185765734-4deb05ff-0c6a-4283-87fd-c2ec9b5a5696.png)
 
-## What needs to be changed
-### Design
-- lib/view/utils/helpers/style_helper.dart
-- lib/view/utils/helpers/color_helper.dart
-- lib/view/utils/shared/shared_grid_widget.dart
+## Apps
+https://play.google.com/store/apps/details?id=com.chatram.metropolitan_museum
+
