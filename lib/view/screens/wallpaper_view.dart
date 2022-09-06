@@ -38,6 +38,13 @@ class WallpaperView extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
+          GetBuilder<WallpaperController>(
+              init: WallpaperController(),
+              builder: (controller) {
+                return controller.wallpaperstate
+                    ? const Center(child: CircularProgressIndicator())
+                    : Container();
+              }),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
             child: Column(

@@ -18,10 +18,10 @@ class WallpaperController extends DownloadController {
 // Set
   Future<void> setOnHomeScreen(
       {String? url, String? imagePath, bool? download}) async {
-
     if (download!) {
       await homeScreen(imagePath!);
     } else {
+      setWallpaperState(true);
       var filePath = await cacheWallpaper(url!);
       await homeScreen(filePath.path);
     }
@@ -31,6 +31,8 @@ class WallpaperController extends DownloadController {
       message: 'The Wallpaper saved on home screen',
       duration: Duration(seconds: 2),
     ));
+
+    setWallpaperState(false);
   }
 
   Future<void> setOnLockScreen(
@@ -38,6 +40,7 @@ class WallpaperController extends DownloadController {
     if (download!) {
       await lockScreen(imagePath!);
     } else {
+      setWallpaperState(true);
       var filePath = await cacheWallpaper(url!);
       await lockScreen(filePath.path);
     }
@@ -47,6 +50,8 @@ class WallpaperController extends DownloadController {
       message: 'The Wallpaper saved on lock screen',
       duration: Duration(seconds: 2),
     ));
+
+    setWallpaperState(false);
   }
 
   Future<void> setOnLockAndHomeScreen(
@@ -55,6 +60,7 @@ class WallpaperController extends DownloadController {
       await homeScreen(imagePath!);
       await lockScreen(imagePath);
     } else {
+      setWallpaperState(true);
       var filePath = await cacheWallpaper(url!);
       await homeScreen(filePath.path);
       await lockScreen(filePath.path);
@@ -65,6 +71,8 @@ class WallpaperController extends DownloadController {
       message: 'The Wallpaper saved on home and lock screen',
       duration: Duration(seconds: 2),
     ));
+
+    setWallpaperState(false);
   }
 
 // Screens

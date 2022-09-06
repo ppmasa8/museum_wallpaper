@@ -101,7 +101,7 @@ class SetButton extends StatelessWidget {
                 ));
       },
       child: Container(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 80,
           vertical: 15,
         ),

@@ -5,6 +5,8 @@ class BaseController extends GetxController {
   bool get state => _state;
   bool _bottomState = false;
   bool get bottomstate => _bottomState;
+  bool _wallpaperState = false;
+  bool get wallpaperstate => _wallpaperState;
 
   void setState(bool value) {
     _state = value;
@@ -13,6 +15,11 @@ class BaseController extends GetxController {
 
   void setBottomState(bool value) {
     _bottomState = value;
+    update();
+  }
+
+  void setWallpaperState(bool value) {
+    _wallpaperState = value;
     update();
   }
 
