@@ -5,7 +5,7 @@ Wallpaper can be taken from the Metropolitan Museum of Art collections.
 
 # Using
 - Dart/flutter
-- [NoSQL(Hive)](https://pub.dev/packages/hive)
+- [NoSQL(flutter-Hive)](https://pub.dev/packages/hive)
 - [metropolitan museum api](https://metmuseum.github.io/)
 
 # Structure
