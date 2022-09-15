@@ -32,7 +32,7 @@ const landscapeObjectIDArray = [
   751593,
   751589,
 ];
-const oldestObjectIDArray = [
+const randomObjectIDArray = [
   328905,
   322890,
   44292,

@@ -4,61 +4,59 @@ import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
 import 'package:metropolitan_museum/services/rest_api_service.dart';
 import 'package:metropolitan_museum/view/utils/constants/const.dart';
 
-class OldestController extends BaseController {
+class RandomController extends BaseController {
   final RestApiService _restApiService = RestApiService();
-  // ignore: todo
-  // TODO: Change the list name.
-  final ScrollController oldestScrollController = ScrollController();
-  List<MetropolitanMuseum> oldestList = [];
+  final ScrollController randomScrollController = ScrollController();
+  List<MetropolitanMuseum> randomList = [];
 
   // These number is the result of a search for the word "old" on MetropolitanMuseumApi.
-  Future<void> getListOfOldest() async {
+  Future<void> getListOfRandom() async {
     setState(true);
-    oldestList += await _restApiService
+    randomList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${328905}");
-    oldestList += await _restApiService
+    randomList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${322890}");
-    oldestList += await _restApiService
+    randomList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${44292}");
-    oldestList += await _restApiService
+    randomList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${751543}");
-    oldestList += await _restApiService
+    randomList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${717577}");
-    oldestList += await _restApiService
+    randomList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${328902}");
-    oldestList += await _restApiService
+    randomList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${322272}");
-    oldestList += await _restApiService
+    randomList += await _restApiService
         .convertJsonToObjectOnlyImgAndWikiURL(api + "${327457}");
     setState(false);
   }
 
-  int oldestPageNumber = 0;
+  int randomPageNumber = 0;
 
   void loadMoreData() {
-    oldestScrollController.addListener(() async {
-      if (oldestScrollController.position.pixels ==
-          oldestScrollController.position.maxScrollExtent) {
-        await addMoreDataToOldestList();
+    randomScrollController.addListener(() async {
+      if (randomScrollController.position.pixels ==
+          randomScrollController.position.maxScrollExtent) {
+        await addMoreDataToRandomList();
       }
     });
   }
 
-  Future<void> addMoreDataToOldestList() async {
+  Future<void> addMoreDataToRandomList() async {
     setBottomState(true);
     List<MetropolitanMuseum> wallpapers = [];
     for (var i = 0; i < 10; i++) {
       wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
-          api + "${oldestObjectIDArray[oldestPageNumber]}");
-      oldestPageNumber++;
+          api + "${randomObjectIDArray[randomPageNumber]}");
+      randomPageNumber++;
     }
-    oldestList.addAll(wallpapers);
+    randomList.addAll(wallpapers);
     setBottomState(false);
   }
 
   @override
   void onInit() {
-    getListOfOldest();
+    getListOfRandom();
     loadMoreData();
     super.onInit();
   }

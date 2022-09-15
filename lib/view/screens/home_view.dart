@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:metropolitan_museum/controllers/home_controller.dart';
-import 'package:metropolitan_museum/controllers/oldest_controller.dart';
+import 'package:metropolitan_museum/controllers/random_controller.dart';
 import 'package:metropolitan_museum/controllers/popular_controller.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
 import 'package:metropolitan_museum/view/utils/helpers/style_helper.dart';
@@ -40,7 +40,7 @@ class HomeView extends StatelessWidget {
                     style: links,
                   ),
                   Text(
-                    "OLDEST",
+                    "RANDOMS",
                     style: links,
                   ),
                 ]),
@@ -75,16 +75,16 @@ class HomeView extends StatelessWidget {
                           isLoading: controller.bottomstate);
                 },
               ),
-              GetBuilder<OldestController>(
-                init: OldestController(),
+              GetBuilder<RandomController>(
+                init: RandomController(),
                 builder: (controller) {
                   return controller.state
                       ? const Center(
                           child: CircularProgressIndicator(),
                         )
                       : SharedGridWidget(
-                          wallpapers: controller.oldestList,
-                          scrollController: controller.oldestScrollController,
+                          wallpapers: controller.randomList,
+                          scrollController: controller.randomScrollController,
                           isLoading: controller.bottomstate);
                 },
               )
