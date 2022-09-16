@@ -50,9 +50,11 @@ class RandomController extends BaseController {
   Future<void> addMoreDataToRandomList() async {
     setBottomState(true);
     List<MetropolitanMuseum> wallpapers = [];
+    var rng = Random();
     for (var i = 0; i < 10; i++) {
       wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
-          api + "${randomObjectIDArray[randomPageNumber]}");
+          api + "${objectIDs[rng.nextInt(objectIDs.length) - 1]}");
+      print(objectIDs[rng.nextInt(objectIDs.length) - 1]);
       randomPageNumber++;
     }
     randomList.addAll(wallpapers);
