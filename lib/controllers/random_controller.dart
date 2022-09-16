@@ -54,7 +54,7 @@ class RandomController extends BaseController {
     for (var i = 0; i < 10; i++) {
       wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
           api + "${objectIDs[rng.nextInt(objectIDs.length) - 1]}");
-      print(objectIDs[rng.nextInt(objectIDs.length) - 1]);
+      // print(objectIDs[rng.nextInt(objectIDs.length) - 1]);
       randomPageNumber++;
     }
     randomList.addAll(wallpapers);
