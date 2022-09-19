@@ -63,6 +63,7 @@ class SharedGridWidget extends StatelessWidget {
                           .toString(),
                       fit: BoxFit.cover,
                       errorBuilder: (c, o, s) {
+                        // need to improve error func.
                         print('Load failed : ${c.toString()}');
                         return const Icon(
                           Icons.error,
