@@ -11,29 +11,17 @@ class HomeController extends BaseController {
   final RestApiService _restApiService = RestApiService();
   final ScrollController landscapesScrollController = ScrollController();
   List<MetropolitanMuseum> landscapesList = [];
-  int landscapesPageNumber = 0;
+  // int landscapesPageNumber = 0;
   var intArray = [];
 
   // These number is the result of a search for the word "landscape" on MetropolitanMuseumApi.
   Future<void> getListOfLandscape() async {
     setState(true);
     randomizer();
-    landscapesList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[0]}");
-    landscapesList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[1]}");
-    landscapesList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[2]}");
-    landscapesList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[3]}");
-    landscapesList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[4]}");
-    landscapesList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[5]}");
-    landscapesList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[6]}");
-    landscapesList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[7]}");
+    for (var i = 0; i < 8; i++) {
+      landscapesList += await _restApiService
+          .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[i]}");
+    }
     setState(false);
   }
 
@@ -54,7 +42,7 @@ class HomeController extends BaseController {
       wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
           api +
               "${landscapeObjectIDs[rng.nextInt(landscapeObjectIDs.length) - 1]}");
-      landscapesPageNumber++;
+      // landscapesPageNumber++;
     }
     landscapesList.addAll(wallpapers);
     setBottomState(false);

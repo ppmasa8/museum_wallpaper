@@ -11,29 +11,17 @@ class RandomController extends BaseController {
   final RestApiService _restApiService = RestApiService();
   final ScrollController randomScrollController = ScrollController();
   List<MetropolitanMuseum> randomList = [];
-  int randomPageNumber = 0;
+  // int randomPageNumber = 0;
   var intArray = [];
 
   // These number is the result of a search for the word "old" on MetropolitanMuseumApi.
   Future<void> getListOfRandom() async {
     setState(true);
     randomizer();
-    randomList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[0]}");
-    randomList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[1]}");
-    randomList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[2]}");
-    randomList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[3]}");
-    randomList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[4]}");
-    randomList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[5]}");
-    randomList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[6]}");
-    randomList += await _restApiService
-        .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[7]}");
+    for (var i = 0; i < 8; i++) {
+      randomList += await _restApiService
+          .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[i]}");
+    }
     setState(false);
   }
 
@@ -54,7 +42,7 @@ class RandomController extends BaseController {
       wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
           api + "${randomObjectIDs[rng.nextInt(randomObjectIDs.length) - 1]}");
       // print(objectIDs[rng.nextInt(objectIDs.length) - 1]);
-      randomPageNumber++;
+      // randomPageNumber++;
     }
     randomList.addAll(wallpapers);
     setBottomState(false);
