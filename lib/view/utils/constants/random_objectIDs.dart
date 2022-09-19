@@ -1,4 +1,4 @@
-const objectIDs = [
+const randomObjectIDs = [
   1,
   2,
   3,
