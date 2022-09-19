@@ -14,3 +14,5 @@ Wallpaper can be taken from the Metropolitan Museum of Art collections.
 ## Apps
 https://play.google.com/store/apps/details?id=com.chatram.metropolitan_museum
 
+# todo
+manage version.
