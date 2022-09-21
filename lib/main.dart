@@ -17,6 +17,7 @@ Future<void> main() async {
 class MyTheme extends ChangeNotifier {
   ThemeData current = ThemeData.light();
   bool _isDark = false;
+  // foo
 
   toggle() {
     _isDark = !_isDark;
