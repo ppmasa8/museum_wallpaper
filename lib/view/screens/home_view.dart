@@ -3,10 +3,12 @@ import 'package:get/get.dart';
 import 'package:metropolitan_museum/controllers/home_controller.dart';
 import 'package:metropolitan_museum/controllers/random_controller.dart';
 import 'package:metropolitan_museum/controllers/popular_controller.dart';
+import 'package:metropolitan_museum/main.dart';
 import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
 import 'package:metropolitan_museum/view/utils/helpers/style_helper.dart';
 import 'package:metropolitan_museum/view/utils/shared/shared_grid_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -26,14 +28,6 @@ class HomeView extends StatelessWidget {
             centerTitle: true,
             backgroundColor: whitecolor,
             elevation: 0,
-            actions: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.settings,
-                    color: blackcolor,
-                  ))
-            ],
             bottom: const TabBar(
                 indicatorColor: Colors.transparent,
                 labelColor: pinkcolor,
@@ -52,6 +46,12 @@ class HomeView extends StatelessWidget {
                     style: links,
                   ),
                 ]),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              Provider.of<MyTheme>(context, listen: false).toggle();
+            },
+            child: Icon(Icons.autorenew),
           ),
           body: TabBarView(
             physics: const BouncingScrollPhysics(),
