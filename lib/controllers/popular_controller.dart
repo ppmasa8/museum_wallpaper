@@ -11,16 +11,15 @@ class PopularController extends BaseController {
   final RestApiService _restApiService = RestApiService();
   final ScrollController popularScrollController = ScrollController();
   List<MetropolitanMuseum> popularList = [];
-  // int popularPageNumber = 0;
-  var intArray = [];
+  var rng = Random();
 
   // These number is the result of a search for the word "popular" on MetropolitanMuseumApi.
   Future<void> getListOfPopular() async {
     setState(true);
-    randomizer();
     for (var i = 0; i < 8; i++) {
-      popularList += await _restApiService
-          .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[i]}");
+      popularList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
+          api +
+              "${popularObjectIDs[rng.nextInt(popularObjectIDs.length) - 1]}");
     }
     setState(false);
   }
@@ -37,24 +36,15 @@ class PopularController extends BaseController {
   Future<void> addMoreDataToPopularList() async {
     setBottomState(true);
     List<MetropolitanMuseum> wallpapers = [];
-    var rng = Random();
     for (var i = 0; i < 10; i++) {
       wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
           api +
               "${popularObjectIDs[rng.nextInt(popularObjectIDs.length) - 1]}");
-      // popularPageNumber++;
     }
     popularList.addAll(wallpapers);
     setBottomState(false);
   }
 
-  void randomizer() {
-    var n = popularObjectIDs.length;
-    var rng = Random();
-    for (var i = 0; i < 8; i++) {
-      intArray.add(popularObjectIDs[rng.nextInt(n) - 1]);
-    }
-  }
 
   @override
   void onInit() {
@@ -62,10 +52,4 @@ class PopularController extends BaseController {
     loadMoreData();
     super.onInit();
   }
-
-  // @override
-  // void onClose() {
-  //   popularScrollController.dispose();
-  //   super.onClose();
-  // }
 }

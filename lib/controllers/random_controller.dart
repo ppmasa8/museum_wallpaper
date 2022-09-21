@@ -12,16 +12,14 @@ class RandomController extends BaseController {
   final RestApiService _restApiService = RestApiService();
   final ScrollController randomScrollController = ScrollController();
   List<MetropolitanMuseum> randomList = [];
-  // int randomPageNumber = 0;
-  var intArray = [];
+  var rng = Random();
 
   // These number is the result of a search randoms.
   Future<void> getListOfRandom() async {
     setState(true);
-    randomizer();
     for (var i = 0; i < 8; i++) {
-      randomList += await _restApiService
-          .convertJsonToObjectOnlyImgAndWikiURL(api + "${intArray[i]}");
+      randomList += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
+          api + "${randomObjectIDs[rng.nextInt(randomObjectIDs.length) - 1]}");
     }
     setState(false);
   }
@@ -38,23 +36,12 @@ class RandomController extends BaseController {
   Future<void> addMoreDataToRandomList() async {
     setBottomState(true);
     List<MetropolitanMuseum> wallpapers = [];
-    var rng = Random();
     for (var i = 0; i < 10; i++) {
       wallpapers += await _restApiService.convertJsonToObjectOnlyImgAndWikiURL(
           api + "${randomObjectIDs[rng.nextInt(randomObjectIDs.length) - 1]}");
-      // print(objectIDs[rng.nextInt(objectIDs.length) - 1]);
-      // randomPageNumber++;
     }
     randomList.addAll(wallpapers);
     setBottomState(false);
-  }
-
-  void randomizer() {
-    var n = randomObjectIDs.length;
-    var rng = Random();
-    for (var i = 0; i < 8; i++) {
-      intArray.add(randomObjectIDs[rng.nextInt(n) - 1]);
-    }
   }
 
   @override
@@ -63,10 +50,4 @@ class RandomController extends BaseController {
     loadMoreData();
     super.onInit();
   }
-
-  // @override
-  // void onClose() {
-  //   oldestScrollController.dispose();
-  //   super.onClose();
-  // }
 }
