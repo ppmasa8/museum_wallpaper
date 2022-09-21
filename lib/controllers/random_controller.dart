@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class RandomController extends BaseController {
   // int randomPageNumber = 0;
   var intArray = [];
 
-  // These number is the result of a search for the word "old" on MetropolitanMuseumApi.
+  // These number is the result of a search randoms.
   Future<void> getListOfRandom() async {
     setState(true);
     randomizer();
