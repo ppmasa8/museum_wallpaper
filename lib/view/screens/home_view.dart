@@ -26,6 +26,14 @@ class HomeView extends StatelessWidget {
             centerTitle: true,
             backgroundColor: whitecolor,
             elevation: 0,
+            actions: [
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.settings,
+                    color: blackcolor,
+                  ))
+            ],
             bottom: const TabBar(
                 indicatorColor: Colors.transparent,
                 labelColor: pinkcolor,
