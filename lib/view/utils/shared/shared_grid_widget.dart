@@ -67,7 +67,7 @@ class SharedGridWidget extends StatelessWidget {
                         print('Load failed : ${c.toString()}');
                         return const Icon(
                           Icons.error,
-                          color: warningcolor,
+                          color: pinkcolor,
                         );
                       },
                     ),
