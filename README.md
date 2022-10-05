@@ -1,4 +1,4 @@
-# Museum Wallpaper🖼️
+# 🖼️Museum Wallpaper🖼️
 It is a wallpaper application for smartphones. 
 
 Wallpaper can be taken from the Metropolitan Museum of Art collections.
