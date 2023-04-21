@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
+import '../models/metropolitanMuseum.dart';
 
 class RestApiService {
   Future<List<dynamic>> getJsonDataFromApi(String url) async {

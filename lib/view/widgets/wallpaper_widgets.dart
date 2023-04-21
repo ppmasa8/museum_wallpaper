@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:metropolitan_museum/controllers/wallpaper_controller.dart';
-import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
-import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
-import 'package:metropolitan_museum/view/utils/helpers/style_helper.dart';
+import '../../controllers/wallpaper_controller.dart';
+import '../../models/metropolitanMuseum.dart';
+import '../utils/helpers/color_helper.dart';
+import '../utils/helpers/style_helper.dart';
 
 class SetButton extends StatelessWidget {
   final WallpaperController wallpaperController;

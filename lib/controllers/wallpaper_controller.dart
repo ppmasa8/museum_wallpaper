@@ -2,7 +2,7 @@ import 'package:flutter_cache_manager/file.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_wallpaper_manager/flutter_wallpaper_manager.dart';
 import 'package:get/get.dart';
-import 'package:metropolitan_museum/controllers/download_controller.dart';
+import 'download_controller.dart';
 
 class WallpaperController extends DownloadController {
   Future<void> downloadTheWallpaper(String url) async {

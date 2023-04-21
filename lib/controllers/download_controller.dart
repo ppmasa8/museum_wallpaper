@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:metropolitan_museum/controllers/base_controller.dart';
-import 'package:metropolitan_museum/view/utils/constants/const.dart';
+import 'base_controller.dart';
+import '../view/utils/constants/const.dart';
 
 class DownloadController extends BaseController {
   Box<String>? downloadBoxListner;

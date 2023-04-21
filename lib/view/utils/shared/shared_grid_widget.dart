@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
-import 'package:metropolitan_museum/view/screens/wallpaper_view.dart';
-import 'package:metropolitan_museum/view/utils/constants/const.dart';
-import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
-import 'package:metropolitan_museum/view/widgets/wallpaper_widgets.dart';
+import '../../../models/metropolitanMuseum.dart';
+import '../../screens/wallpaper_view.dart';
+import '../../utils/constants/const.dart';
+import '../../utils/helpers/color_helper.dart';
+import '../../widgets/wallpaper_widgets.dart';
 
 class SharedGridWidget extends StatelessWidget {
   final List<MetropolitanMuseum> wallpapers;

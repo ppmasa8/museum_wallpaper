@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:metropolitan_museum/controllers/base_controller.dart';
-import 'package:metropolitan_museum/view/screens/download_view.dart';
-import 'package:metropolitan_museum/view/screens/favorite_view.dart';
-import 'package:metropolitan_museum/view/screens/home_view.dart';
+import '../../controllers/base_controller.dart';
+import '../screens/download_view.dart';
+import '../screens/favorite_view.dart';
+import '../screens/home_view.dart';
 
 class BaseView extends StatelessWidget {
   const BaseView({Key? key}) : super(key: key);

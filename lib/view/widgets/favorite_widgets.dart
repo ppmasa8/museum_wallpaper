@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:metropolitan_museum/controllers/favorite_controller.dart';
-import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
-import 'package:metropolitan_museum/view/screens/wallpaper_view.dart';
-import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
+import '../../controllers/favorite_controller.dart';
+import '../../models/metropolitanMuseum.dart';
+import '../screens/wallpaper_view.dart';
+import '../utils/helpers/color_helper.dart';
 
 class FavoriteWidgets extends StatelessWidget {
   const FavoriteWidgets({Key? key}) : super(key: key);

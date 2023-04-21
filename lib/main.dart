@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
-import 'package:metropolitan_museum/view/screens/base_view.dart';
-import 'package:metropolitan_museum/view/utils/constants/const.dart';
+import '../models/metropolitanMuseum.dart';
+import '../view/screens/base_view.dart';
+import '../view/utils/constants/const.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {

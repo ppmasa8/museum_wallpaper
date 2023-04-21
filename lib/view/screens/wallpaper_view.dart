@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:metropolitan_museum/controllers/favorite_controller.dart';
-import 'package:metropolitan_museum/controllers/wallpaper_controller.dart';
-import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
-import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
-import 'package:metropolitan_museum/view/widgets/wallpaper_widgets.dart';
+import '../../controllers/favorite_controller.dart';
+import '../../controllers/wallpaper_controller.dart';
+import '../../models/metropolitanMuseum.dart';
+import '../utils/helpers/color_helper.dart';
+import '../widgets/wallpaper_widgets.dart';
 
 class WallpaperView extends StatelessWidget {
   final MetropolitanMuseum wallpaper;

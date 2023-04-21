@@ -2,12 +2,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:metropolitan_museum/controllers/download_controller.dart';
-import 'package:metropolitan_museum/view/screens/wallpaper_view.dart';
-import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
-import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
+import '../../controllers/download_controller.dart';
+import '../screens/wallpaper_view.dart';
+import '../../models/metropolitanMuseum.dart';
+import '../utils/helpers/color_helper.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:metropolitan_museum/view/utils/constants/const.dart';
+import '../utils/constants/const.dart';
 
 
 class DownloadWidgets extends StatelessWidget {

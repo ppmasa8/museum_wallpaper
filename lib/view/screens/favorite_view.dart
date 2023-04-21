@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
-import 'package:metropolitan_museum/view/utils/helpers/style_helper.dart';
-import 'package:metropolitan_museum/view/widgets/favorite_widgets.dart';
+import '../utils/helpers/color_helper.dart';
+import '../utils/helpers/style_helper.dart';
+import '../widgets/favorite_widgets.dart';
 
 class FavoriteView extends StatelessWidget {
   const FavoriteView({Key? key}) : super(key: key);

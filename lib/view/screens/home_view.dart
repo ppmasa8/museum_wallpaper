@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:metropolitan_museum/controllers/home_controller.dart';
-import 'package:metropolitan_museum/controllers/random_controller.dart';
-import 'package:metropolitan_museum/controllers/popular_controller.dart';
-import 'package:metropolitan_museum/main.dart';
-import 'package:metropolitan_museum/view/utils/helpers/color_helper.dart';
-import 'package:metropolitan_museum/view/utils/helpers/style_helper.dart';
-import 'package:metropolitan_museum/view/utils/shared/shared_grid_widget.dart';
+import '../../controllers/home_controller.dart';
+import '../../controllers/random_controller.dart';
+import '../../controllers/popular_controller.dart';
+import '../../main.dart';
+import '../utils/helpers/color_helper.dart';
+import '../utils/helpers/style_helper.dart';
+import '../utils/shared/shared_grid_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 

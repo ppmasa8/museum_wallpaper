@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:metropolitan_museum/controllers/base_controller.dart';
-import 'package:metropolitan_museum/models/metropolitanMuseum.dart';
-import 'package:metropolitan_museum/services/rest_api_service.dart';
-import 'package:metropolitan_museum/view/utils/constants/const.dart';
-import 'package:metropolitan_museum/view/utils/constants/popular_objectIDs.dart';
+import 'base_controller.dart';
+import '../models/metropolitanMuseum.dart';
+import '../services/rest_api_service.dart';
+import '../view/utils/constants/const.dart';
+import '../view/utils/constants/popular_objectIDs.dart';
 
 class PopularController extends BaseController {
   final RestApiService _restApiService = RestApiService();
