@@ -23,10 +23,10 @@ class HomeView extends StatelessWidget {
                 style: GoogleFonts.dancingScript(
                   fontWeight: FontWeight.bold,
                   fontSize: 32,
-                  color: blackcolor,
+                  // color: blackcolor,
                 )),
             centerTitle: true,
-            backgroundColor: whitecolor,
+            // backgroundColor: whitecolor,
             elevation: 0,
             bottom: const TabBar(
                 indicatorColor: Colors.transparent,
@@ -51,7 +51,7 @@ class HomeView extends StatelessWidget {
             onPressed: () {
               Provider.of<MyTheme>(context, listen: false).toggle();
             },
-            child: Icon(Icons.autorenew),
+            child: const Icon(Icons.autorenew),
           ),
           body: TabBarView(
             physics: const BouncingScrollPhysics(),
