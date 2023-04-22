@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import '../../../models/metropolitanMuseum.dart';
 import '../../screens/wallpaper_view.dart';
 import '../../utils/constants/const.dart';
@@ -55,21 +56,14 @@ class SharedGridWidget extends StatelessWidget {
                             index * jsonObjectLength]
                         .primaryImage
                         .toString(),
-                    child: Image.network(
+                    child: CachedNetworkImage(
                       // TODO: response faster
-                      wallpapers[primaryImageStartPosition +
+                      imageUrl: wallpapers[primaryImageStartPosition +
                               index * jsonObjectLength]
                           .primaryImage
                           .toString(),
                       fit: BoxFit.cover,
-                      errorBuilder: (c, o, s) {
-                        // need to improve error func.
-                        print('Load failed : ${c.toString()}');
-                        return const Icon(
-                          Icons.error,
-                          color: pinkcolor,
-                        );
-                      },
+                      errorWidget: (context, url, error) => const Icon(Icons.error),
                     ),
                   ),
                 ),
