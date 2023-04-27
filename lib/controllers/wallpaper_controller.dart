@@ -2,6 +2,7 @@ import 'package:flutter_cache_manager/file.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_wallpaper_manager/flutter_wallpaper_manager.dart';
 import 'package:get/get.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'download_controller.dart';
 
 class WallpaperController extends DownloadController {
@@ -77,20 +78,59 @@ class WallpaperController extends DownloadController {
 
 // Screens
   Future<void> homeScreen(String path) async {
-    await WallpaperManager.setWallpaperFromFile(
-        path, WallpaperManager.HOME_SCREEN);
+    try {
+      await WallpaperManager.setWallpaperFromFile(
+          path, WallpaperManager.HOME_SCREEN);
+      print('Wallpaper set successfully');
+    } catch (e) {
+      print('Error setting wallpaper: $e');
+      Fluttertoast.showToast(
+          msg: 'Failed to set wallpaper',
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          // backgroundColor: Colors.red,
+          // textColor: Colors.white,
+          fontSize: 16.0);
+    }
   }
 
   Future<void> lockScreen(String path) async {
-    await WallpaperManager.setWallpaperFromFile(
-        path, WallpaperManager.LOCK_SCREEN);
+    try {
+      await WallpaperManager.setWallpaperFromFile(
+          path, WallpaperManager.LOCK_SCREEN);
+      print('Wallpaper set successfully');
+    } catch (e) {
+      print('Error setting wallpaper: $e');
+      Fluttertoast.showToast(
+          msg: 'Failed to set wallpaper',
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          // backgroundColor: Colors.red,
+          // textColor: Colors.white,
+          fontSize: 16.0);
+    }
   }
 
   Future<void> lockAndHomeScreen(String path) async {
-    await WallpaperManager.setWallpaperFromFile(
-        path, WallpaperManager.HOME_SCREEN);
-    await WallpaperManager.setWallpaperFromFile(
-        path, WallpaperManager.LOCK_SCREEN);
+    try {
+      await WallpaperManager.setWallpaperFromFile(
+          path, WallpaperManager.HOME_SCREEN);
+      await WallpaperManager.setWallpaperFromFile(
+          path, WallpaperManager.LOCK_SCREEN);
+      print('Wallpaper set successfully');
+    } catch (e) {
+      print('Error setting wallpaper: $e');
+      Fluttertoast.showToast(
+          msg: 'Failed to set wallpaper',
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          // backgroundColor: Colors.red,
+          // textColor: Colors.white,
+          fontSize: 16.0);
+    }
   }
 
 // download first
