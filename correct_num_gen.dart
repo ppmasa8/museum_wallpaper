@@ -12,6 +12,7 @@ void main() async {
   // Categories will be changed as needed.
   var size = landscapeObjectIDs.length;
 
+  var dataList = [];
   for (var i = 0; i < size; i++) {
     // Categories will be changed as needed.
     Uri uri = Uri.parse(api + "${landscapeObjectIDs[i]}");
@@ -22,7 +23,8 @@ void main() async {
       try {
         var imageResponse = await http.get(Uri.parse(imageData));
         if (imageResponse.statusCode == 200) {
-          await file.writeAsString(landscapeObjectIDs[i].toString());
+          dataList.add(landscapeObjectIDs[i]);
+          await file.writeAsString(dataList.toString() + "\n");
         }
         print(landscapeObjectIDs[i]);
       } catch (e) {
