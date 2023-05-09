@@ -57,7 +57,6 @@ class SharedGridWidget extends StatelessWidget {
                         .primaryImage
                         .toString(),
                     child: CachedNetworkImage(
-                      // TODO: response faster
                       imageUrl: wallpapers[primaryImageStartPosition +
                               index * jsonObjectLength]
                           .primaryImage
