@@ -105,7 +105,6 @@ class WallpaperView extends StatelessWidget {
                                   },
                                   builder: (controller) {
                                     return CircleAvatar(
-                                      backgroundColor: whitecolor,
                                       child: WallpaperViewButton(
                                           onPressed: () {
                                             controller

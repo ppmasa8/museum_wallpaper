@@ -105,13 +105,13 @@ class SetButton extends StatelessWidget {
           horizontal: 80,
           vertical: 15,
         ),
-        child: const Text(
-          "SET AS",
-          style: buttons,
-        ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
           color: Colors.cyan,
+        ),
+        child: const Text(
+          "SET AS",
+          style: buttons,
         ),
       ),
     );
