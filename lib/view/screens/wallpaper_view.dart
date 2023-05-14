@@ -43,7 +43,6 @@ class WallpaperView extends StatelessWidget {
               builder: (controller) {
                 return controller.wallpaperstate
                     ? Dialog(
-                        backgroundColor: whitecolor,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Column(
