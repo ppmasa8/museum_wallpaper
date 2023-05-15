@@ -15,5 +15,5 @@ Wallpaper can be taken from the Metropolitan Museum of Art collections.
 ## Apps
 https://play.google.com/store/apps/details?id=com.chatram.metropolitan_museum
 
-## How to release
+## How to release, note to self.
 https://qiita.com/kokogento/items/fb07e6926db0fe850f98
