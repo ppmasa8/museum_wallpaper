@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../../main.dart';
 import '../utils/helpers/color_helper.dart';
-import '../utils/helpers/style_helper.dart';
 import '../widgets/favorite_widgets.dart';
 
 class FavoriteView extends StatelessWidget {
