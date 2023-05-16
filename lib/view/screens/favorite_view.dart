@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import '../../main.dart';
 import '../utils/helpers/color_helper.dart';
 import '../utils/helpers/style_helper.dart';
 import '../widgets/favorite_widgets.dart';
@@ -8,14 +11,19 @@ class FavoriteView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MyTheme theme = context.watch<MyTheme>();
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           "Favorite",
-          style: h1,
+          style: GoogleFonts.dancingScript(
+            fontWeight: FontWeight.bold,
+            fontSize: 32,
+            color: theme.isDark ? whitecolor : blackcolor,
+          ),
         ),
         centerTitle: true,
-        backgroundColor: whitecolor,
+        backgroundColor: theme.isDark ? Colors.grey[850] : Colors.grey[50],
         elevation: 0,
       ),
       body: const FavoriteWidgets(),

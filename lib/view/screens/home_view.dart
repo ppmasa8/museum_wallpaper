@@ -15,6 +15,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MyTheme theme = context.watch<MyTheme>();
     return DefaultTabController(
         length: 3,
         child: Scaffold(
@@ -23,10 +24,10 @@ class HomeView extends StatelessWidget {
                 style: GoogleFonts.dancingScript(
                   fontWeight: FontWeight.bold,
                   fontSize: 32,
-                  // color: blackcolor,
+                  color: theme.isDark ? whitecolor : blackcolor,
                 )),
             centerTitle: true,
-            // backgroundColor: whitecolor,
+            backgroundColor: theme.isDark ? Colors.grey[850] : Colors.grey[50],
             elevation: 0,
             bottom: const TabBar(
                 indicatorColor: Colors.transparent,
