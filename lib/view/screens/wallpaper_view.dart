@@ -43,15 +43,20 @@ class WallpaperView extends StatelessWidget {
               builder: (controller) {
                 return controller.wallpaperstate
                     ? Dialog(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
-                          child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: const [
-                                CircularProgressIndicator(),
-                                SizedBox(height: 15),
-                                Text("Loading...")
-                              ]),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 20),
+                          child: Row(mainAxisSize: MainAxisSize.min, children: [
+                            SizedBox(width: 80),
+                            CircularProgressIndicator(),
+                            SizedBox(width: 15),
+                            Text("Loading...",
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 65, 65, 65),
+                                )),
+                          ]),
                         ),
                       )
                     : Container();
